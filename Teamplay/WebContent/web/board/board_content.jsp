@@ -126,10 +126,80 @@ function replyUpdateClick(no)
 </head>
 <body>
   <center>
+
+    <table border=1 width=80% height=80%>
     
-    <table id="table_content">
-      <tr>
-        <td width=20% class="tdcenter">번호</td>
+		<tr>
+			<td colspan="5" height=80% align=center>${ㅇ새. }</td>
+		</tr>
+		
+		<tr>
+			<td rowspan="6" width=65% height=80%>
+				<img src="web/images/1st.jpg">
+			</td>
+			<td colspan="3" width=35% height=80%>
+				user 프로필 사진, user id
+          	</td>
+        </tr>
+		<tr>
+       		<td align="right">
+          			조회수
+          			날짜
+        	</td>  
+		</tr>
+		
+        <tr>
+        	<td>
+        		작성자 내용 보기
+        	</td>
+        </tr>
+      
+        
+<!-- 수정 삭제 게시물가기 및 채팅창 및 버튼-->        
+		<tr>
+			<td algin=left>
+				좋아요//댓글보기
+			
+ 				<a href="board_update.do?no=${dto.no }&page=${page}"><img src="image/modify.gif"></a>
+				<a href="#" id="delA"><img src="image/delete.gif"></a>
+				<a href="board_list.do?page=${page }"><img src="image/list.gif"></a>
+			</td>
+		</tr>
+		<tr id="delTr">
+			<td align=right>
+				<form method=post action="board_delete.do" id="delfrm">
+        			 비밀번호 : <input type="password" name=pwd id=pwd size=10>
+             				 <input type=hidden name=no value="${ dto.no}">
+             				 <input type=hidden name=page value="${page }">
+             				 <input type=button value=삭제 id="delBtn">
+        		 </form>
+        	</td>
+      	</tr>
+    	
+    	<tr>
+    		<td>
+         		<span style="float: right;">
+        			<form method=post action="reply_re_insert.do" id="re_re_frm${rDto.no }">
+         				<textarea rows="1" cols="35" name="rmsg" id="rmsg${rDto.no }" style="vertical-align: middle;"></textarea>
+         				<input type=hidden name=bno value="${ dto.no}">
+        				<input type=hidden name=page value="${page }">
+         				<input type=hidden name=pno value="${rDto.no }">
+         				<input type=button value="댓글" style="height:20px" onclick="replyBtnClick(${rDto.no })">
+        			</form>
+        		</span>      
+         					<jsp:include page="${jsp }"></jsp:include>
+         	</td>
+		</tr>
+		<tr>
+			<td>
+				댓글 
+				댓글
+				댓글
+			</td>
+		</tr>
+	</table>
+		
+       <%--  <td width=20% class="tdcenter">번호</td>
         <td width=30% class="tdcenter">${dto.no }</td>
         <td width=20% class="tdcenter">작성일</td>
         <td width=30% class="tdcenter">
@@ -260,9 +330,9 @@ function replyUpdateClick(no)
          <a href="board_content.do?no=${dto.no }&page=${page}&rPage=${rcurpage<rtotal?rcurpage+1:rcurpage}"><img src="image/next_icon.gif"></a>&nbsp;
          ${rcurpage } page / ${rtotal } pages
         </td>
-      </tr>
-     </table>
-     </div>
+      </tr> --%>
+     <!-- </table> -->
+     <!-- </div> -->
      
   </center>
 </body>
