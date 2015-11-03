@@ -9,9 +9,9 @@
     <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:100%;height:500px;}
+.map_wrap {position:relative;width:100%;height:600px;}
 /*#menu_wrap {position:relative;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);font-size:12px;border-radius: 10px;}*/ 
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10% 10% 10% 75%;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height: 450px; margin: 9% 10% 10% 73%;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #menu_wrap .option{text-align: center;}
@@ -48,20 +48,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-<div class="container">
-<div class="map_wrap">
+<center>
+
+	<div class="page-header">
+               <h1>STORE INFO</h1>
+            </div>
+	<div class="map_wrap">
         <div class="option">
             <p>
                 <form onsubmit="searchPlaces(); return false;">
                매장검색 : <input type="text" class="form-control" value="" id="keyword" style="width:30%;" placeholder="동/읍/면/리"> 
                 <button type="submit" class="form-control">매장찾기</button>  </div><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 안내 : 매장명, 동명, 도로명을 검색해주세요.<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 예시 : 을지로 1가, 창천동 / 남대문로, 연세로 / 서울시청점, 연세대점
+            	    검색 안내 : 지역명, 매장명, 동명, 도로명 등을 검색해주세요.<br>
+              	검색 예시 : 노고산동,창천동 / 백범로,연세로 / 신촌점,논현점
             </p><br>
        
-    <div id="map" style="width:70%;height:80%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:65%;  height: 80%; position: absolute;margin: 0 90px;overflow: hidden;"></div>
    
-    <div id="menu_wrap" class="bg_white">
+    <div id="menu_wrap" class="bg_white" >
        
         <ul id="placesList"></ul>
         
@@ -69,7 +73,7 @@
         </div>
     </div>
 </div>
-
+</center>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=a8948407d851c6b5f7522b081af1ec44&libraries=services"></script>
 
 
