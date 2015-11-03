@@ -12,22 +12,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+.circle {
+	 border-radius: 50%;
+}
+</style>
 </head>
 <body>
 	<center>
 		<table border=0 width=500>
-			<tr bgcolor=#ccffcc height=30>
-				<th>번호</th>
-				<th>이름</th>
-				<th>가격</th>
-			</tr>
-			<c:forEach var="dto" items="${list }">			
-			<tr height=25>
-				<td>${dto.hno }</td>
-				<td>${dto.hname }</td>
-				<td>${dto.price }</td>
-			</tr>
+			
+			  <tr>
+			<c:forEach var="dto" items="${list }">	
+				<td><img class="circle" src="web/image/${dto.hname2}.jpg" width=200></td>
+				<%-- <c:if test="${list%3==1 }">
+					</tr><tr>
+				</c:if> --%>
+				<%-- ${dto.hname }
+				<c:if test="${dto.price!=0}">
+					&nbsp;&nbsp;(${dto.price }원)
+				</c:if> --%>
 			</c:forEach>
+			  </tr>
+			
+					
+			<%-- <c:forEach var="dto" items="${list }">			
+			<tr height=25>
+				<td align=center>${dto.hname }
+				<c:if test="${dto.price!=0}">
+					&nbsp;&nbsp;(${dto.price }원)
+				</c:if>
+				</td>
+				<td><img class="circle" src="web/image/${dto.hname2}.jpg"></td>
+				
+			</tr>
+			</c:forEach> --%>
 		</table>
 		<hr width=500>
 	</center>
