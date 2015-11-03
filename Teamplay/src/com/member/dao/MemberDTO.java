@@ -10,7 +10,7 @@ public class MemberDTO {
 	private String addr1;
 	private String addr2;
 	private String tel;
-	private Date regdate;
+	/*private Date regdate;*/
 	private String admin;
 	public String getId() {
 		return id;
@@ -66,12 +66,12 @@ public class MemberDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public Date getRegdate() {
+	/*public Date getRegdate() {
 		return regdate;
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
-	}
+	}*/
 	public String getAdmin() {
 		return admin;
 	}

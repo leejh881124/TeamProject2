@@ -3,16 +3,16 @@
 <mapper namespace="com.member.dao.member-mapper">
 	<!-- Login -->
 	<select id="memberIdCount" resultType="int" parameterType="String">
-		SELECT COUNT(*) FROM member
+		SELECT COUNT(*) FROM pmember
 		WHERE id=#{id}
 	</select>
 	<select id="memberGetInfo" resultType="Member" parameterType="String">
-		SELECT pwd, name, admin FROM member
+		SELECT pwd, name, admin FROM pmember
 		WHERE id=#{id}
 	</select>
 	<!--  IDCheck  -->
 	<select id="memberIdcheck" resultType="int" parameterType="String">
-		SELECT COUNT(*) FROM member
+		SELECT COUNT(*) FROM pmember
 		WHERE id=#{id}
 	</select>
 	<!-- 우편번호 검색 -->
@@ -21,4 +21,9 @@
 		FROM zipcode
 		WHERE dong LIKE '%'||#{dong}||'%'
 	</select>
+	<!--  가입하기 -->
+	<insert id="memberJoin" parameterType="Member">
+		INSERT INTO pmember VALUES(#{id},#{pwd},#{name},
+		#{sex},#{birth},#{post},#{addr1} ,#{addr2},#{tel},#{admin})
+	</insert>
 </mapper>
