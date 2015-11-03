@@ -22,11 +22,18 @@
 	<center>
 		<table border=0 width=500>
 			
-			
+			  <tr>
 			<c:forEach var="dto" items="${list }">	
-				<img class="circle" src="web/image/${dto.hname2}.jpg">${dto.hname }
+				<td><img class="circle" src="web/image/${dto.hname2}.jpg" width=200></td>
+				<%-- <c:if test="${list%3==1 }">
+					</tr><tr>
+				</c:if> --%>
+				<%-- ${dto.hname }
+				<c:if test="${dto.price!=0}">
+					&nbsp;&nbsp;(${dto.price }¿ø)
+				</c:if> --%>
 			</c:forEach>
-			
+			  </tr>
 			
 					
 			<%-- <c:forEach var="dto" items="${list }">			
