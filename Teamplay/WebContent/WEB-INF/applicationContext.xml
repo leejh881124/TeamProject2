@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- startDocument(): 문서가 시작 -->
+<beans> <!-- startElement() -->
+	<!-- 메모리 할당 Class.forName(clsName) id라는건 내가 찾을수 있는거면 됑 -->
+	<!-- startElement() 속성을 읽고 endElement() -->
+	<bean id="index" class="com.main.model.IndexModel"/>
+	<!-- startElement() 속성을 읽고 endElement() -->
+	<bean id="main" class="com.main.model.MainModel"/>
+	<bean id="reserve" class="com.reserve.model.ReserveModel"/>
+	<bean id="store" class="com.store.model.StoreModel"/>
+	<bean id="recommend" class="com.recommend.model.RecommendModel"/>
+	<bean id="menu" class="com.menu.model.MenuModel"/>
+	<!--  회원 관련 -->
+	<bean id="join" class="com.join.model.JoinModel"/>
+	<bean id="login" class="com.member.model.MemberLoginModel"/>
+	<bean id="logout" class="com.member.model.MemberLogoutModel"/>
+	<bean id="idcheck" class="com.member.model.IdCheckModel"/>
+	<bean id="postFind" class="com.member.model.PostFindModel"/>
+</beans> <!-- endElement() -->
+<!-- endDocument() : 문서가 종료 -->

@@ -1,0 +1,44 @@
+body{
+     font-family: ¸¼Àº °íµñ,ÈÞ¸Õ¸ÅÁ÷Ã¼;
+     font-size: 9pt;
+     color: white;
+}
+#post_wrapper{
+   border:5px solid #ededed;
+   width: 400px;
+   margin: 0px auto;
+   border-radius:10px;
+   padding: 10px;
+}
+#postForm{
+   display: table;
+   margin: 10px auto;
+   border-collapse: collapse;
+}
+#postForm p{
+   display: table-row;
+   padding: 5px;
+   border-bottom: 1px solid #898989;
+}
+#postForm label{
+   display: table-cell;
+   padding-left: 10px;
+}
+#postForm span
+{
+	padding: 5px;
+	margin: 20px;
+	width: 150px;
+}
+#postForm input[type="text"]{
+   border:1px solid,#FF3399;
+   
+   background-color: #efefef;
+   margin: 5px;
+   width: 150px;
+}
+/* #postForm input[type="button"]{
+   background-color: #fff;
+   padding: 3px 10px;
+   border-radius:10px;
+} */
