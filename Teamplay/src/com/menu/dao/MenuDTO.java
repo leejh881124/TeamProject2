@@ -7,6 +7,13 @@ public class MenuDTO {
 	private int tno;
 	private String hname;
 	private int price;
+	private String hname2;
+	public String getHname2() {
+		return hname2;
+	}
+	public void setHname2(String hname2) {
+		this.hname2 = hname2;
+	}
 	public int getHno() {
 		return hno;
 	}
