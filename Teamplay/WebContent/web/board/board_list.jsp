@@ -17,7 +17,7 @@
 		<table border=0 width=600>
 			<tr>
 				<td align=left>
-					<a href="board_insert.do"><img src="image/write.gif"></a>
+					<a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">±Û¾²±â</button></a>
 				</td>
 			</tr>
 		</table>
@@ -63,8 +63,8 @@
                <ul>
                   <li><a class="frist" href="board_list.do?page=${curpage>1?curpage-1:curpage }">Prev</a></li>
                
-                  <li><a class="last" href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }">Next</a></li>
                   <li>${curpage } page / ${totalpage } pages</li>
+                  <li><a class="last" href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }">Next</a></li>
                </ul>
        </div>
 	</center>
