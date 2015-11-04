@@ -54,9 +54,7 @@ function nutirition()
 </head>
 <body>
  <center>
-  <br>
-  <br>
-  <h2 class="heading text-center">make burger</h2>
+  <h1 class="page-header">MAKE BURGER</h1>
   <br>
   <br>
   	<form>
