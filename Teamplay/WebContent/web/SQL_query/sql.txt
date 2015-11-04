@@ -1,0 +1,209 @@
+-- 보조키연결되어있으면
+-- DROP TABLE 테이블명 CASCADE CONSTRAINTS;
+
+DROP TABLE pmember;
+DROP TABLE history;
+DROP TABLE sinfo;
+DROP TABLE menu CASCADE CONSTRAINTS;
+DROP TABLE preserve CASCADE CONSTRAINTS;
+DROP TABLE cardpay;
+DROP TABLE telpay;
+DROP TABLE pboard CASCADE CONSTRAINTS;
+DROP TABLE preply CASCADE CONSTRAINTS;
+
+
+-- project table!!
+
+-- 회원 가입 & 회원 정보  11.4 수정 (소영)
+
+
+CREATE TABLE pmember(
+   id      VARCHAR2(40),   
+   pwd  VARCHAR2(10) CONSTRAINT pmb_nn_pwd NOT NULL,
+   name       VARCHAR2(34) CONSTRAINT pmb_nn_name NOT NULL,
+   sex       CHAR(4) ,
+   birth       VARCHAR2(20) CONSTRAINT pmb_nn_birth NOT NULL,
+   post VARCHAR2(7) CONSTRAINT pmb_post_nn NOT NULL,
+   addr1 VARCHAR2(200) CONSTRAINT pmb__nn_addr1 NOT NULL,
+   addr2 VARCHAR2(100),
+   tel VARCHAR2(13),
+   admin CHAR(1) DEFAULT 'n',
+   CONSTRAINT pmb_pk_id PRIMARY KEY(id),
+   CONSTRAINT pmb_ck_sex CHECK(sex IN('남자','여자')),
+   CONSTRAINT pmb_admin_ck CHECK(admin IN('y', 'n'))
+);
+
+INSERT INTO pmember VALUES('hong' , '1234' , '홍길동' , '남자' , '2005-10-10' , '101-111' ,
+'서울시 마포구 백범로' , '18-21 미화빌딩 2층 C강의장' , '010-1111-1111' , 'y');
+
+INSERT INTO pmember VALUES('shim' , '1234' , '심청이' , '여자' , '2005-10-10' , '101-111' ,
+'서울시 마포구 백범로' , '18-21 미화빌딩 2층 C강의장' , '010-1111-1111' , 'n');
+COMMIT;
+
+
+-- 햄버거 히스토리
+CREATE TABLE history(
+   id      VARCHAR2(40),
+   hno        NUMBER(10),
+   hdate      DATE DEFAULT SYSDATE,
+   price       VARCHAR2(14),
+   CONSTRAINT his_pk_hno PRIMARY KEY(hno)
+);
+
+-- 매장 정보 & 위치 찾기
+CREATE TABLE sinfo(
+   sno       NUMBER(10),
+   sname      VARCHAR2(20),
+   stel       NUMBER(11),
+   saddr       VARCHAR2(200) CONSTRAINT sinfo_nn_saddr NOT NULL,
+   sloc       VARCHAR2(200) CONSTRAINT sinfo_nn_sloc NOT NULL,
+   CONSTRAINT sinfo_pk_sno PRIMARY KEY(sno)
+);
+
+-- 메뉴
+CREATE TABLE menu(
+ hno NUMBER(4),
+ tno NUMBER(4) CONSTRAINT menu_tno_nn NOT NULL,
+ hname VARCHAR2(30) CONSTRAINT menu_hname_nn NOT NULL,
+ price NUMBER(8),
+ hname2 VARCHAR2(30) CONSTRAINT menu_hname2_nn NOT NULL,
+ CONSTRAINT menu_pk_hno PRIMARY KEY(hno)
+);
+
+-- 예약
+CREATE TABLE preserve(
+   resno      NUMBER(10),
+   id      VARCHAR2(20),
+   sno       NUMBER(10),
+   pay       VARCHAR2(14) ,
+   price       VARCHAR2(14),
+   hno        NUMBER(10),
+   pdate      DATE DEFAULT SYSDATE,
+   CONSTRAINT pres_pk_resno PRIMARY KEY(resno),
+   CONSTRAINT pres_fk_id FOREIGN KEY(id) REFERENCES pmember(id),
+   CONSTRAINT pres_fk_hno FOREIGN KEY(hno) REFERENCES menu(hno),
+   CONSTRAINT pres_fk_sno FOREIGN KEY(sno) REFERENCES sinfo(sno)
+);
+
+-- 카드결제
+CREATE TABLE cardpay(
+   resno       NUMBER(10),
+   ccom       VARCHAR2(20),
+   cno       NUMBER(20),
+   cpwd       NUMBER(20),
+   ccvc       NUMBER(10),
+   cvaild       NUMBER(10),
+   cemail       VARCHAR2(20),
+   CONSTRAINT cardpay_pk_cno PRIMARY KEY(cno),
+   CONSTRAINT cardpay_fk_resno FOREIGN KEY(resno) REFERENCES preserve(resno)
+);
+
+-- 휴대폰 소액결제
+CREATE TABLE telpay(
+   resno       NUMBER(10),
+   tcom       VARCHAR2(20),
+   tname       VARCHAR2(34),
+   tbirth       NUMBER(20),
+   ttel       NUMBER(13),
+   CONSTRAINT telpay_pk_ttel PRIMARY KEY(ttel),
+   CONSTRAINT telpay_fk_resno FOREIGN KEY(resno) REFERENCES preserve(resno)
+);
+
+-- 게시판  11.04 수정
+CREATE TABLE pboard
+(
+   hno       NUMBER(10),
+   bno       NUMBER(10),
+   bname    VARCHAR2(34) CONSTRAINT bname_nn NOT NULL,
+   bcont       CLOB CONSTRAINT bcont_nn NOT NULL,
+   bsub       VARCHAR2(50) CONSTRAINT bsub_nn NOT NULL,
+   bpwd       VARCHAR2(40) CONSTRAINT bpwd_nn NOT NULL,
+   bhit       NUMBER(10),
+   brec       NUMBER(10),
+   bfilename    VARCHAR2(100),
+   bregdate    DATE DEFAULT SYSDATE,
+   replycount   number(10),
+   CONSTRAINT pboard_pk_bno PRIMARY KEY(bno),
+   CONSTRAINT pboard_fk_hno FOREIGN KEY(hno) REFERENCES menu(hno)
+);
+
+INSERT INTO pboard VALUES(1, 1, '홍길동1', '이 버거 진짜 맛나요', '버거추천', '1234', '0','1', 'a.jpg', '2015-11-03', 1);
+INSERT INTO pboard VALUES(3, 2, '홍길동2', '이 버거 진짜 맛나요2', '버거추천2', '1234', '0','1',  'b.jpg', '2015-11-07', 1);
+INSERT INTO pboard VALUES(5, 3, '홍길동3', '이 버거 진짜 맛나요3', '버거추천3', '1234', '0','1',  'c.jpg', '2015-10-03', 1);
+INSERT INTO pboard VALUES(2, 4, '홍길동4', '이 버거 진짜 맛나요4', '버거추천4', '1234', '0','1',  'd.jpg', '2015-12-03', 1);
+INSERT INTO pboard VALUES(4, 5, '홍길동5', '이 버거 진짜 맛나요5', '버거추천5', '1234', '0','1',  'e.jpg', '2015-09-03', 1);
+INSERT INTO pboard VALUES(5, 6, '홍길동6', '이 버거 진짜 맛나요6', '버거추천6', '1234', '0','1',  'f.jpg', '2015-09-23', 1);
+INSERT INTO pboard VALUES(3, 7, '홍길동7', '이 버거 진짜 맛나요7', '버거추천7', '1234', '0','1',  'g.jpg', '2015-11-23', 1);
+INSERT INTO pboard VALUES(2, 8, '홍길동8', '이 버거 진짜 맛나요8', '버거추천8', '1234', '0','1',  'h.jpg', '2015-10-18', 1);
+INSERT INTO pboard VALUES(4, 9, '홍길동9', '이 버거 진짜 맛나요9', '버거추천9', '1234', '0','1',  'i.jpg', '2015-10-22', 1);
+INSERT INTO pboard VALUES(6, 10, '홍길동10', '이 버거 진짜 맛나요10', '버거추천10', '1234', '0','1',  'j.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(6, 11, '홍길동11', '이 버거 진짜 맛나요11', '버거추천11', '1234', '0','1',  'k.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(7, 12, '홍길동12', '이 버거 진짜 맛나요12', '버거추천12', '1234', '0','1',  'l.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(8, 13, '홍길동13', '이 버거 진짜 맛나요13', '버거추천13', '1234', '0','1',  'm.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(9, 14, '홍길동14', '이 버거 진짜 맛나요14', '버거추천14', '1234', '0','1',  'n.jpg', '2015-11-7', 1);
+
+-- 게시판 댓글
+CREATE TABLE preply
+(
+   rno       NUMBER(10),
+   bno      NUMBER(10),
+   rname      VARCHAR2(34),
+   rcont       CLOB CONSTRAINT rcont_nn NOT NULL,
+   rregdate    DATE DEFAULT SYSDATE,
+   group_id    NUMBER(4),
+   group_step    NUMBER(4),
+   group_tab    NUMBER(4),
+   root       NUMBER(4),
+   depth       NUMBER(4),
+   CONSTRAINT preply_pk_rno PRIMARY KEY(rno),
+   CONSTRAINT preply_fk_bno FOREIGN KEY(bno) REFERENCES pboard(bno)
+);
+
+
+-- 메뉴 추가
+
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(1,10,'BB파이어 버거',6200, '1955fire');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(2,10,'BB스모키 버거',6200, '1955smoky');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(3,10,'BB 버거',5700, '1955');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(4,10,'베이컨토마토 버거',5300, 'bacontomato');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(5,10,'더블BB 버거',6900, 'double1955');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(6,10,'더블불고기 버거',4600, 'doublebulgogi');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(7,10,'더블쿼터BB 버거',6400, 'doublequater');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(8,10,'쿼터BB 버거',5100, 'quaterpounder');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(9,10,'토마토치즈 버거',4600, 'tomatocheese');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(10,20,'브리오쉬 번','briosh'); 
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(11,20,'오트밀 번','oatmeal');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(13,30,'앵거스 비프 패티','patty');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(14,40,'아메리칸 치즈','american');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(15,40,'프로볼로네 치즈','probolone');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(16,40,'페퍼 잭 치즈','pepperjack');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(17,50,'레터스','lettucewrap');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(18,50,'레드 어니언','redonion');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(19,50,'토마토','tomato');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(20,50,'할라피뇨','jalapeno');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(21,50,'롱 슬라이스 피클','pickle');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(22,50,'어니언','onion');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(23,60,'마요네즈','mayonnaise');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(24,60,'머스타드','mustard');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(25,60,'토마토 할라피뇨 렐리시','tomatojalapen');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(26,60,'케첩','ketchup');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(27,60,'아이올리','aioli');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(28,60,'스파이시 바베큐','spicy');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(29,60,'발사믹','balsamic');
+INSERT INTO menu(hno, tno, hname, hname2) VALUES(30,60,'BB 스페셜','bigmac');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(31,70,'메이플 베이컨',500,'bacon');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(32,70,'그릴드 머쉬룸',500,'gmushroom');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(33,70,'그릴드 어니언',500,'gonion');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(34,80,'후렌치 후라이',1800,'french');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(35,80,'BB 윙',2300,'bbwings');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(36,80,'BB 너겟',2900,'bbnuggets');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(37,80,'코카 콜라',1300,'cola');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(38,80,'코카 콜라 제로',1300,'colazero');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(39,80,'스프라이트',1300,'sprite');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(40,80,'환타',1300,'fanta');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(41,80,'아이스 아메리카노',2300,'iceamericano');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(42,80,'아이스 카페라떼',2600,'icelatte');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(43,80,'아메리카노',1800,'americano');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(44,80,'카페라떼',2100,'latte');
+INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(45,80,'카푸치노',2100,'cappu');
+COMMIT;
