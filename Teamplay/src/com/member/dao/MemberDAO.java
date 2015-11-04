@@ -77,4 +77,10 @@ public class MemberDAO {
 		return list;
 		
 	}
+	public static void memberJoin(MemberDTO d)
+	{
+		SqlSession session = ssf.openSession(true);
+		session.insert("memberJoin",d);
+		session.close();
+	}
 }

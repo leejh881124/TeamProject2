@@ -11,7 +11,9 @@ public class PostFindModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("EUC-KR");
 		String dong = req.getParameter("dong");
+		System.out.println(dong);
 		List<ZipcodeDTO> list = MemberDAO.postFindData(dong);
 		if(list.size()>0 || list!=null)
 		{

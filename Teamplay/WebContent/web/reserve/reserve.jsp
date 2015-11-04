@@ -82,8 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<center>
-	<br>
-	<h2>주문하기</h2>
+	<h1 class="page-header">RESERVE</h1>
 	<br>
 		<table border=0>
 			<tr>
@@ -140,8 +139,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</table>
 		
 		<hr width=1000>
-		
-		<h2>예약확인</h2>
+		<br>
+		<br>
+		<h1 class="page-header">CONFIRM</h1>
 		<table border=0 width=800>
 			<tr>
 				<th bgcolor="black" width=150><font color="white">

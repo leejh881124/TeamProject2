@@ -11,6 +11,7 @@ public class MemberLoginModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("EUC-KR");
 		String id=req.getParameter("id");
 		String pwd=req.getParameter("pwd");
 		String result="";

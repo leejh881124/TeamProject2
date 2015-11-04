@@ -12,6 +12,8 @@
 	<bean id="menu" class="com.menu.model.MenuModel"/>
 	<!--  회원 관련 -->
 	<bean id="join" class="com.join.model.JoinModel"/>
+	<bean id="join_ok" class="com.join.model.JoinOkModel"/>
+	<bean id="member_join" class="com.member.model.MemberJoinModel"/>
 	<bean id="login" class="com.member.model.MemberLoginModel"/>
 	<bean id="logout" class="com.member.model.MemberLogoutModel"/>
 	<bean id="idcheck" class="com.member.model.IdCheckModel"/>

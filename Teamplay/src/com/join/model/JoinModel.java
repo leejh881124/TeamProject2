@@ -11,6 +11,7 @@ public class JoinModel implements Model{
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
 		req.setAttribute("jsp", "../join/join.jsp");
+		req.setAttribute("joinOk", "false");
 		return "web/main/index.jsp";
 	}
 
