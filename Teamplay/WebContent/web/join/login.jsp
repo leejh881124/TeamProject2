@@ -8,7 +8,8 @@
 <script type="test/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('#logBtn').click(function(){
+	function login()
+	{
 		var id=$('#id').val();
 		if(id=="")
 		{
@@ -24,7 +25,16 @@ $(function(){
 			return;
 		}
 		$('#log_frm').submit();
+	}
+	$('#logBtn').click(function(){
+		login();
 	});
+	 $("#pwd").keypress(function(key){
+	        if(key.keyCode == 13)
+	        {
+	          	login();
+	        }
+	  });
 });
 
 </script>
