@@ -107,10 +107,14 @@ $(function(){
             <br>
             <span id="pwdSpan" style="color:red; text-align: center"></span>
          </p>
-         <p class="btnSubmit">
+         <div class="send">
+			<input type="submit" value="글쓰기" id="btnSub" onClick="return false;">
+			<input type="submit" value="취소" id="btnCancel">
+		</div>
+        <!--  <p class="btnSubmit">
             <input type=button value="글쓰기" id="btnSub">
             <input type=button value="취소" id="btnCancel">
-         </p>
+         </p> -->
       </form>
    </div>
 </body>
