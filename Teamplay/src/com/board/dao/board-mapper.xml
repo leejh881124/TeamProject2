@@ -24,6 +24,21 @@
         1,#{bno},#{bname},#{bcont},#{bsub},#{bpwd},0,0,#{bfilename},
         SYSDATE,0)
     </insert>
+     <sql id="where-no">
+      WHERE bno=#{bno}
+    </sql>
+     <update id="boardHitIncrement" parameterType="int">
+      UPDATE pboard SET
+      bhit=bhit+1
+      <include refid="where-no"/>
+      <!-- ps.setInt(1,no) -->
+    </update>
+    <!-- 내용보기 데이터 출력  -->
+    <select id="boardContentData" resultType="Board" parameterType="int">
+     SELECT bno,bname,bsub,bcont,TO_CHAR(bregdate,'YYYY-MM-DD') as dbday, bhit,bfilename 
+     FROM pboard
+     <include refid="where-no"/>
+    </select>
  </mapper>
  
  

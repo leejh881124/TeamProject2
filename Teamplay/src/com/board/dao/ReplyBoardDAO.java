@@ -100,6 +100,31 @@ public class ReplyBoardDAO {
 			  session.close();
 	   }
    }
+ public static ReplyBoardDTO boardContentData(int no,int type)
+   {
+	   SqlSession session=null;
+	   ReplyBoardDTO d=new ReplyBoardDTO();
+	   try
+	   {
+		   session=ssf.openSession(true);
+		   if(type==1)
+		   {
+			   session.update("boardHitIncrement",no);
+		   }
+		   //session.commit();
+		   d=session.selectOne("boardContentData", no);
+	   }catch(Exception ex)
+	   {
+		   //session.rollback();
+		   System.out.println(ex.getMessage());
+	   }
+	   finally
+	   {
+		  if(session!=null)
+			  session.close();
+	   }
+	   return d;
+   }
 }
 
 
