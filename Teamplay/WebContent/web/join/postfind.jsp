@@ -60,6 +60,9 @@ function postFind()
 	param="?dong="+param;
 	sendMessage('GET',param,"../../postFind.do",postFind_result);
 }
+
+
+
 function postOk(zip, addr)
 {
 	parent.join_frm.post.value=zip;
@@ -70,6 +73,13 @@ $(function(){
 		$('#postFindBtn').click(function(){
 			postfind();
 		});
+		$("#dong").keypress(function(key){
+	        if(key.keyCode == 13)
+	        {
+				postFind();
+				return false;
+	        }
+	    });
 });
 
 </script>
