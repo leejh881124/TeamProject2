@@ -1,13 +1,20 @@
+/*
+쿼리문 실행방법
+1. 그대로복사한다
+2. 실행한다
+3. 나머지에 주석을 걸고 preply테이블을 만든다
+*/
+
 -- 보조키연결되어있으면
 -- DROP TABLE 테이블명 CASCADE CONSTRAINTS;
 
-DROP TABLE pmember;
-DROP TABLE history;
-DROP TABLE sinfo;
+DROP TABLE pmember CASCADE CONSTRAINTS;
+DROP TABLE history CASCADE CONSTRAINTS;
+DROP TABLE sinfo CASCADE CONSTRAINTS;
 DROP TABLE menu CASCADE CONSTRAINTS;
 DROP TABLE preserve CASCADE CONSTRAINTS;
-DROP TABLE cardpay;
-DROP TABLE telpay;
+DROP TABLE cardpay CASCADE CONSTRAINTS;
+DROP TABLE telpay CASCADE CONSTRAINTS;
 DROP TABLE pboard CASCADE CONSTRAINTS;
 DROP TABLE preply CASCADE CONSTRAINTS;
 
@@ -109,39 +116,8 @@ CREATE TABLE telpay(
    CONSTRAINT telpay_fk_resno FOREIGN KEY(resno) REFERENCES preserve(resno)
 );
 
--- 게시판  11.04 수정
-CREATE TABLE pboard
-(
-   hno       NUMBER(10),
-   bno       NUMBER(10),
-   bname    VARCHAR2(34) CONSTRAINT bname_nn NOT NULL,
-   bcont       CLOB CONSTRAINT bcont_nn NOT NULL,
-   bsub       VARCHAR2(50) CONSTRAINT bsub_nn NOT NULL,
-   bpwd       VARCHAR2(40) CONSTRAINT bpwd_nn NOT NULL,
-   bhit       NUMBER(10),
-   brec       NUMBER(10),
-   bfilename    VARCHAR2(100),
-   bregdate    DATE DEFAULT SYSDATE,
-   replycount   number(10),
-   CONSTRAINT pboard_pk_bno PRIMARY KEY(bno),
-   CONSTRAINT pboard_fk_hno FOREIGN KEY(hno) REFERENCES menu(hno)
-);
 
-INSERT INTO pboard VALUES(1, 1, '홍길동1', '이 버거 진짜 맛나요', '버거추천', '1234', '0','1', 'a.jpg', '2015-11-03', 1);
-INSERT INTO pboard VALUES(3, 2, '홍길동2', '이 버거 진짜 맛나요2', '버거추천2', '1234', '0','1',  'b.jpg', '2015-11-07', 1);
-INSERT INTO pboard VALUES(5, 3, '홍길동3', '이 버거 진짜 맛나요3', '버거추천3', '1234', '0','1',  'c.jpg', '2015-10-03', 1);
-INSERT INTO pboard VALUES(2, 4, '홍길동4', '이 버거 진짜 맛나요4', '버거추천4', '1234', '0','1',  'd.jpg', '2015-12-03', 1);
-INSERT INTO pboard VALUES(4, 5, '홍길동5', '이 버거 진짜 맛나요5', '버거추천5', '1234', '0','1',  'e.jpg', '2015-09-03', 1);
-INSERT INTO pboard VALUES(5, 6, '홍길동6', '이 버거 진짜 맛나요6', '버거추천6', '1234', '0','1',  'f.jpg', '2015-09-23', 1);
-INSERT INTO pboard VALUES(3, 7, '홍길동7', '이 버거 진짜 맛나요7', '버거추천7', '1234', '0','1',  'g.jpg', '2015-11-23', 1);
-INSERT INTO pboard VALUES(2, 8, '홍길동8', '이 버거 진짜 맛나요8', '버거추천8', '1234', '0','1',  'h.jpg', '2015-10-18', 1);
-INSERT INTO pboard VALUES(4, 9, '홍길동9', '이 버거 진짜 맛나요9', '버거추천9', '1234', '0','1',  'i.jpg', '2015-10-22', 1);
-INSERT INTO pboard VALUES(6, 10, '홍길동10', '이 버거 진짜 맛나요10', '버거추천10', '1234', '0','1',  'j.jpg', '2015-11-7', 1);
-INSERT INTO pboard VALUES(6, 11, '홍길동11', '이 버거 진짜 맛나요11', '버거추천11', '1234', '0','1',  'k.jpg', '2015-11-7', 1);
-INSERT INTO pboard VALUES(7, 12, '홍길동12', '이 버거 진짜 맛나요12', '버거추천12', '1234', '0','1',  'l.jpg', '2015-11-7', 1);
-INSERT INTO pboard VALUES(8, 13, '홍길동13', '이 버거 진짜 맛나요13', '버거추천13', '1234', '0','1',  'm.jpg', '2015-11-7', 1);
-INSERT INTO pboard VALUES(9, 14, '홍길동14', '이 버거 진짜 맛나요14', '버거추천14', '1234', '0','1',  'n.jpg', '2015-11-7', 1);
-
+/*
 -- 게시판 댓글
 CREATE TABLE preply
 (
@@ -158,7 +134,7 @@ CREATE TABLE preply
    CONSTRAINT preply_pk_rno PRIMARY KEY(rno),
    CONSTRAINT preply_fk_bno FOREIGN KEY(bno) REFERENCES pboard(bno)
 );
-
+*/
 
 -- 메뉴 추가
 
@@ -206,4 +182,41 @@ INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(42,80,'아이스 카페라떼',
 INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(43,80,'아메리카노',1800,'americano');
 INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(44,80,'카페라떼',2100,'latte');
 INSERT INTO menu(hno, tno, hname, price, hname2) VALUES(45,80,'카푸치노',2100,'cappu');
+
+
+
+-- 게시판  11.04 수정
+CREATE TABLE pboard
+(
+   hno       NUMBER(10),
+   bno       NUMBER(10),
+   bname    VARCHAR2(34) CONSTRAINT bname_nn NOT NULL,
+   bcont       CLOB CONSTRAINT bcont_nn NOT NULL,
+   bsub       VARCHAR2(50) CONSTRAINT bsub_nn NOT NULL,
+   bpwd       VARCHAR2(40) CONSTRAINT bpwd_nn NOT NULL,
+   bhit       NUMBER(10),
+   brec       NUMBER(10),
+   bfilename    VARCHAR2(100),
+   bregdate    DATE DEFAULT SYSDATE,
+   replycount   number(10),
+   CONSTRAINT pboard_pk_bno PRIMARY KEY(bno),
+   CONSTRAINT pboard_fk_hno FOREIGN KEY(hno) REFERENCES menu(hno)
+);
+
+INSERT INTO pboard VALUES(1, 1, '홍길동1', '이 버거 진짜 맛나요', '버거추천', '1234', '0','1', 'a.jpg', '2015-11-03', 1);
+INSERT INTO pboard VALUES(3, 2, '홍길동2', '이 버거 진짜 맛나요2', '버거추천2', '1234', '0','1',  'b.jpg', '2015-11-07', 1);
+INSERT INTO pboard VALUES(5, 3, '홍길동3', '이 버거 진짜 맛나요3', '버거추천3', '1234', '0','1',  'c.jpg', '2015-10-03', 1);
+INSERT INTO pboard VALUES(2, 4, '홍길동4', '이 버거 진짜 맛나요4', '버거추천4', '1234', '0','1',  'd.jpg', '2015-12-03', 1);
+INSERT INTO pboard VALUES(4, 5, '홍길동5', '이 버거 진짜 맛나요5', '버거추천5', '1234', '0','1',  'e.jpg', '2015-09-03', 1);
+INSERT INTO pboard VALUES(5, 6, '홍길동6', '이 버거 진짜 맛나요6', '버거추천6', '1234', '0','1',  'f.jpg', '2015-09-23', 1);
+INSERT INTO pboard VALUES(3, 7, '홍길동7', '이 버거 진짜 맛나요7', '버거추천7', '1234', '0','1',  'g.jpg', '2015-11-23', 1);
+INSERT INTO pboard VALUES(2, 8, '홍길동8', '이 버거 진짜 맛나요8', '버거추천8', '1234', '0','1',  'h.jpg', '2015-10-18', 1);
+INSERT INTO pboard VALUES(4, 9, '홍길동9', '이 버거 진짜 맛나요9', '버거추천9', '1234', '0','1',  'i.jpg', '2015-10-22', 1);
+INSERT INTO pboard VALUES(6, 10, '홍길동10', '이 버거 진짜 맛나요10', '버거추천10', '1234', '0','1',  'j.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(6, 11, '홍길동11', '이 버거 진짜 맛나요11', '버거추천11', '1234', '0','1',  'k.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(7, 12, '홍길동12', '이 버거 진짜 맛나요12', '버거추천12', '1234', '0','1',  'l.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(8, 13, '홍길동13', '이 버거 진짜 맛나요13', '버거추천13', '1234', '0','1',  'm.jpg', '2015-11-7', 1);
+INSERT INTO pboard VALUES(9, 14, '홍길동14', '이 버거 진짜 맛나요14', '버거추천14', '1234', '0','1',  'n.jpg', '2015-11-7', 1);
+
 COMMIT;
+
