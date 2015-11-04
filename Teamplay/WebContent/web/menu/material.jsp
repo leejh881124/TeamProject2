@@ -12,11 +12,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-.circle {
-	 border-radius: 50%;
-}
-</style>
 </head>
 <body>
 	<center>
