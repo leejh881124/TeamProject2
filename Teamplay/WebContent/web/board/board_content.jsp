@@ -165,9 +165,9 @@ function replyUpdateClick(no)
             
           
  	<br>
-               <a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">수정</button></a>
+               <a href="board_update.do?no=${dto.bno }&page=${page}"><button class="btn btn-default" type="button" id="logBtn">수정</button></a>
                <a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">삭제</button></a>
-               <a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">목록</button></a>
+               <a href="board_list.do?page=${page }"><button class="btn btn-default" type="button" id="logBtn">목록</button></a>
             </td>
       </tr>
       <tr id="delTr">
