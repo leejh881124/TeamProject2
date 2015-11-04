@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li class="hvr-bounce-to-bottom ${active2 }" id=change-1><a href="menu.do">메뉴</a></li>
 					<li class="hvr-bounce-to-bottom ${active3 }" id=change-2><a href="store.do">매장정보</a></li>
 					<li class="hvr-bounce-to-bottom ${active4 }" id=change-3><a href="reserve.do">예약</a></li>
-					<li class="hvr-bounce-to-bottom ${active5 }" id=change-4><a href="recommend.do">게시판</a></li>
+					<li class="hvr-bounce-to-bottom ${active5 }" id=change-4><a href="board_list.do">게시판</a></li>
 					
 				  </ul> 
 			 <div class="clearfix"></div>
