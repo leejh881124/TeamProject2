@@ -78,6 +78,18 @@ function idcheck()
 	param="?id="+param;
 	sendMessage('GET',param,"../../idcheck.do",idcheck_result);
 }
+$(function()
+{
+    $("#id").keypress(function(key){
+        if(key.keyCode == 13)
+        {
+			idcheck();
+			return false;
+        }
+    });
+	
+});
+
 function Ok()
 {
 	parent.join_frm.id.value=$('#id').val(); 

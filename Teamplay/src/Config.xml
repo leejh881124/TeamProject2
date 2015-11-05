@@ -8,7 +8,8 @@
 
 	<properties resource="com/menu/dao/db.properties"/>
 	<typeAliases>
-		<!-- <typeAlias type="com.dao.BoardDTO" alias="Board"/> -->
+		<typeAlias type="com.board.dao.ReplyBoardDTO" alias="Board"/>
+		<typeAlias type="com.board.dao.ReplyDTO" alias="Reply"/>
 		<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.member.dao.ZipcodeDTO" alias="Zipcode"/>
 		
@@ -29,6 +30,7 @@
 	<mappers>
 		
 		<mapper resource="com/member/dao/member-mapper.xml"/>
+		<mapper resource="com/board/dao/board-mapper.xml"/>
 		<mapper resource="com/menu/dao/menu-mapper.xml"/>
 
 	</mappers>

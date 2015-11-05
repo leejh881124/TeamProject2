@@ -97,7 +97,10 @@ $(function(){
 		
 		<br>
 		<br>
-		<h2 class="heading text-center">Join </h2>
+		<!-- <h2 class="heading text-center">Join </h2> -->
+		<div class="page-header">
+               <h1>JOIN</h1>
+           </div>
 		<br>
 		<br>
 		<table class="table" border="0" width="550" height="550">
@@ -178,8 +181,8 @@ $(function(){
 			</tr>
 			<tr>
 				<td class="send" colspan="3" align="center">
-					<br>
-					<input class="btn btn-default" type="button" id="joinBtn" value="가입하기">
+					<input type="submit" value="가입하기" id="joinBtn" onClick="return false;">
+				<!-- 	<input class="btn btn-default" type="button" id="joinBtn" value="가입하기"> -->
 				</td>
 			</tr> 
 			

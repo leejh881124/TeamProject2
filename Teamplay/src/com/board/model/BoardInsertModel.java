@@ -12,7 +12,7 @@ public class BoardInsertModel implements Model{
 		// TODO Auto-generated method stub
 		req.setAttribute("title", "±Û¾²±â");
 		req.setAttribute("jsp", "../board/board_insert.jsp");
-		return "main/main.jsp";
+		return "web/main/index.jsp";
 	}
 
 }

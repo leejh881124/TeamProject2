@@ -15,6 +15,7 @@ public class BoardListModel implements Model{
 		   {
 		      strPage ="1";
 		   }
+		 
 		   int curpage = Integer.parseInt(strPage);
 		   int rowSize=9;
 		   int totalpage = ReplyBoardDAO.boardTotalPage();
@@ -26,16 +27,17 @@ public class BoardListModel implements Model{
 		   map.put("start", start); // #{start} get("start")
 		   map.put("end", end);
 		   List<ReplyBoardDTO> list=ReplyBoardDAO.boardListData(map);
-		  
+	
 		   req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		   req.setAttribute("list", list);
-		   req.setAttribute("row", num/3);
-		   req.setAttribute("col", num%3);
+		   req.setAttribute("num", num);
+	
 		   req.setAttribute("curpage", curpage);
 		   req.setAttribute("totalpage", totalpage);
 		   req.setAttribute("title", "자유 게시판");
-		req.setAttribute("jsp", "../board/board_list.jsp");
-		return "main/main.jsp";
+		   req.setAttribute("jsp", "../board/board_list.jsp");
+	
+		return "web/main/index.jsp";
 	}
 
 }
