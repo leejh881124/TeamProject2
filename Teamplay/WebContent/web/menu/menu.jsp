@@ -75,6 +75,7 @@ function nutirition()
                     
                     <img src="web/image/menu_info2.jpg">
                     
+                    
                 </div>
             </div>
             
