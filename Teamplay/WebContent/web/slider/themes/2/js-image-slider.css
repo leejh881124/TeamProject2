@@ -126,7 +126,7 @@
     background:#FFF;
 }
 
-#thumbs img{border:1px solid #DDD; cursor:pointer; width:70px; height:44px;}
+#thumbs img{border:1px solid #DDD; cursor:pointer; width:50px; height:44px;}
 
 #thumbs .frame {float:left;padding:2px;border:1px solid #CCC;background:white;border-radius:3px;box-shadow:0 0 3px #BBB;font-size:0;line-height:0;}
 #thumbs .thumb-content {float:left;width:110px;padding-left:18px;}

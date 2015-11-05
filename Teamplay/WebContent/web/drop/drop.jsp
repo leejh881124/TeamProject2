@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
 <title>Drop Captions Demo</title>
 <script type="text/javascript" src="dropcss/jquery.min.js"></script>
 <script type="text/javascript" src="dropcss/jquery.dropcaptions-noconflict.js"></script>
@@ -47,7 +47,7 @@ jQuery(function(){
 	border-top: 1px solid #666;
 	font-family: Verdana;
 	font-size: 11px;
-	padding: 4px;
+	padding: 4px;S
 	-moz-border-radius-bottomright: 6px;
 	-moz-border-radius-bottomleft: 6px;
 	-webkit-border-bottom-right-radius: 6px;
@@ -55,7 +55,7 @@ jQuery(function(){
 	color: #eee;
 }
 body {
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: Georgia, "Times New Roman", serif; 
 }
 p.content {
 	font-size: .9em;
@@ -81,7 +81,7 @@ img.left {
 .center {
 	margin: 0px auto 0px auto;
 	text-align: center;
-}
+} 
 </style>
 </head>
 
