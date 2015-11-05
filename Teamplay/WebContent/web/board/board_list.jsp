@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -11,70 +11,62 @@
 </head>
 <body>
 	<center>
+		<div class="page-header">
+               <h1>RECOMMEND</h1>
+           </div>
 		<table border=0 width=600>
 			<tr>
 				<td align=left>
-					<a href="board_insert.do"><img src="image/write.gif"></a>
+					<a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">글쓰기</button></a>
 				</td>
 			</tr>
 		</table>
-		<table id="table_content">
+		<table border=0 width=800 height=500>
 			<tr>
-				<th width=10%>번호</th>
-				<th width=45%>제목</th>
-				<th width=15%>이름</th>
-				<th width=20%>작성일</th>
-				<th width=10%>조회수</th>
-			</tr>
-			<%--
-				for(BoardDTO dto:list)
-			 --%>
-			 <c:forEach var="dto" items="${list }">
-			<tr id="listTd">
-			<%--
-				dto.getNo()
-			 --%>
-			<td class="tdcenter">${dto.no }</td>
-			<td class="tdleft">
-			<%--
-				if(dto.getGroup_tab()!=0)
-				{
-					for(int i=0;i<dto.getGroup_tab();i++)
-					{
-					
-					}
-				}
-			 --%>
-
+			<c:forEach var="dto" items="${list }">
 			
-			<a href="board_content.do?no=${dto.no }&page=${curpage}">${dto.subject }</a>
-				<c:if test="${dto.replyCount!=0 }">
+			 
+			 
+			<c:set var="i" value="${i+1 }"/>
+			
+			
+		
+			<td class="blog-post">
+              <a href="board_content.do?no=${dto.bno }&page=${curpage}"><img src="web/image/${dto.bfilename }" width="200" height="200"></a>
+              
+               <div class="text">
+                  <a href=""> ${dto.bsub}</a>
+               </div>
+                <c:if test="${dto.replyCount!=0 }">
 				(${dto.replyCount})
 				</c:if>
+               <div class="admin-tag">
+               <p>Posted by <a href=""> ${dto.bname}</a> in General | <a href="">${dto.replyCount } Comments</a> </p>
+               
+               <a href="" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+               </div>	
 				
-				<c:if test="${today==dto.dbday }">
-					<sup>
-						<img src="image/icon_new.gif">
-					</sup>
-				</c:if>
+				
 				</td>
-			<td class="tdcenter">${dto.name }</td>
-			<td class="tdcenter">${dto.dbday }</td>
-			<td class="tdcenter">${dto.hit}</td>
+			<c:if test="${i%3==0 }">
 			</tr>
-			<c:set var="count" value="${count-1}"/>
-			</c:forEach>
+				
+				<c:if test="${i!=num }">
+				<tr>	
+				</c:if>	
+			</c:if>
+		</c:forEach>
 		
 		</table>
-		<table border=0 width=600>
-			<tr>
-				<td align=right>
-				<a href="board_list.do?page=${curpage>1?curpage-1:curpage }"><img src="image/prev_icon.gif"></a>
-				<a href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }"><img src="image/next_icon.gif"></a>
-				${curpage } page / ${totalpage } pages
-				</td>
-			</tr>
-		</table>
+		
+		 <div class="blog-pagenat">
+               <ul>
+                  <li><a class="frist" href="board_list.do?page=${curpage>1?curpage-1:curpage }">Prev</a></li>
+               
+                  <li>${curpage } page / ${totalpage } pages</li>
+                  <li><a class="last" href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }">Next</a></li>
+               </ul>
+       </div>
 	</center>
 </body>
 </html>

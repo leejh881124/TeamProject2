@@ -8,18 +8,15 @@
 
 
 
+
 		<param-name>xmlPath</param-name>
 		<param-value>C:\Users\sist\git\TeamProject2\Teamplay\WebContent\WEB-INF\applicationContext.xml</param-value>
-
-		
 
 
 
 	</init-param>
 
 
-
-   
   </servlet>
   <servlet-mapping>
     <servlet-name>mvc</servlet-name>

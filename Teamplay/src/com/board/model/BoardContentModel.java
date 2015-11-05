@@ -25,14 +25,16 @@ public class BoardContentModel implements Model {
 		String strPage=req.getParameter("page");
 		ReplyBoardDTO d=ReplyBoardDAO.boardContentData(
 				Integer.parseInt(strNo),type);
-		List<ReplyDTO> temp=
+		/*List<ReplyDTO> temp=
 			ReplyBoardDAO.replyListData(Integer.parseInt(strNo));
 		int rtotal=ReplyBoardDAO.replyPageTotalpage(Integer.parseInt(strNo));
-		List<ReplyDTO> list=
+		*/List<ReplyDTO> list=
 				new ArrayList<ReplyDTO>();
 		int j=0;
 		int pagecnt=(rcurpage*5)-5;
-		for(int i=0;i<temp.size();i++)
+	
+	
+		/*for(int i=0;i<temp.size();i++)
 		{
 			if(j<5 && i>=pagecnt)
 			{
@@ -42,13 +44,14 @@ public class BoardContentModel implements Model {
 			}
 		}
 		req.setAttribute("rtotal", rtotal);
+		*/
 		req.setAttribute("rcurpage", rcurpage);
 		req.setAttribute("rlist", list);
 		req.setAttribute("page", strPage);
 		req.setAttribute("dto", d);
 		req.setAttribute("title", "내용보기");
 		req.setAttribute("jsp", "../board/board_content.jsp");
-		return "main/main.jsp";
+		return "web/main/index.jsp";
 	}
 
 }
