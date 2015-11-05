@@ -103,12 +103,13 @@ $(function(){
            </div>
 		<br>
 		<br>
-		<table class="table" border="0" width="550" height="550">
+		<table class="table" border="0" width="600" height="550" style="border-spacing: 0px;
+     border-collapse: collapse;">
 			<tbody>
 			<form method=post action="member_join.do" name="join_frm" id="join_frm">
 			<tr>
-				<td width="20%"><p class="your-para">아이디</p></td>
-				<td width="80%" align="left" class="send">
+				<td width="20%" style="border-top: none;"><p class="your-para">아이디</p></td>
+				<td width="80%"  style="border-top: none;">
 					<input type="text" id="id1" name="id" size="20" readonly class="form-control" placeholder="@email.com">
 					<input type="button" name="idCheck" id="idBtn" value="중복체크" class="btn btn-default" >
 				</td>
@@ -116,33 +117,33 @@ $(function(){
 			</tr>
 			<tr>
 				<td width="20%" rowspan="2"><p class="your-para">비밀번호</p></td>
-				<td width="80%" align="left">
+				<td width="80%" >
 					<input type="password" name="pwd" id="pwd1" size="30" maxlength="10" class="form-control">
 					
 				</td>
 			</tr>
 			<tr>
 				
-				<td width="80%" align="left">
+				<td width="80%" >
 					<input type="password" name="pwd2" id="pwd2" size="30" maxlength="10" placeholder="재입력" class="form-control">
 					<span id="pwdPrint" style="color:red;"></span>
 				</td>
 			</tr>
 			<tr>
 				<td width="20%"><p class="your-para">이름</p></td>
-				<td width="80%" align="left">
+				<td width="80%" >
 					<input type="text" name="name" id="name" size="35"  maxlength="17" class="form-control">
 				</td>
 			</tr>
 			<tr>
 				<td width="20%"><p class="your-para">생년월일</p></td>
-				<td width="80%" align="left">
+				<td width="80%" >
 					<input type="date" name="bday" id="bday" class="form-control">
 				</td>
 			</tr>
 			<tr>
 				<td width="30%"><p class="your-para">성별</p></td>
-				<td width="70%" align="left">
+				<td width="70%" >
 				<input class="btn btn-default dropdown-toggle" type="radio" name="sex"  id="sex" value="남자" checked="">남자
 					<input type="radio" name="sex" id="sex" value="여자">여자
 				</td>
@@ -159,7 +160,7 @@ $(function(){
 			
 			<tr>
 				<td width="20%"><p class="your-para">우편번호</p></td>
-				<td width="80%" align="left">
+				<td width="80%" >
 					<input type="text" id="post" name="post" size="15" readonly class="form-control">
 					<input type="button" value="우편번호 검색" name="postBtn" id="postBtn" class="btn btn-default" >
 					
@@ -179,25 +180,26 @@ $(function(){
 					<input type="text" id="addr2" name="addr2" size="50" class="form-control" placeholder="상세주소를 입력하세요">
 				</td>
 			</tr>
-			<tr>
+			
+			<!-- <tr>
 				<td class="send" colspan="3" align="center">
-					<input type="submit" value="가입하기" id="joinBtn" onClick="return false;">
-				<!-- 	<input class="btn btn-default" type="button" id="joinBtn" value="가입하기"> -->
+					<input class="btn btn-default" type="button" id="joinBtn" value="가입하기">
+				<input type="submit" value="가입하기" id="joinBtn" onClick="return false;">
 				</td>
-			</tr> 
+			</tr>  -->
+		
 			
 		
-			<!-- <tr>
-				<td width="20%"><p class="your-para">이메일</p></td>
-				<td width="80%" align="left">
-					<input type="text" name="email" size="35" class="form-control">
-				</td>
-			</tr>
-			-->
 			</form>
 		</tbody></table>
+			<br><br>
+			<div class="send" colspan="3" align="center">
+				<!-- 	<input class="btn btn-default" type="button" id="joinBtn" value="가입하기"> -->
+				<input type="submit" value="가입하기" id="joinBtn" onClick="return false;">
+				</div>
+					
 	</div>
-		
+		<br><br>
 </c:if>
 	
 
