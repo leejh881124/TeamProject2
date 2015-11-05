@@ -11,7 +11,7 @@
 
       <div class="container">
          <div>
-            <img src="web/images/main1.jpg">
+           <jsp:include page="${slider }"></jsp:include>
          </div>
          <br>
          <table>
