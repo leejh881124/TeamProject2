@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="web/shadow/css/shadowbox.css"/>
 <script type="text/javascript" src="web/shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
@@ -54,9 +57,36 @@ function nutirition()
 </head>
 <body>
  <center>
-  <h1 class="page-header">MAKE BURGER</h1>
+  
+   <div id="myCarousel" class="carousel slide span3" style="width:90%">
+            
+            <div class="carousel-inner">
+                <div class="item" >
+                   
+                    <img src="web/image/menu_info.jpg">
+                    
+                </div>
+                <div class="item active">
+                    
+                    <img src="web/image/menu_info1.jpg">
+                    
+                </div>
+                <div class="item">
+                    
+                    <img src="web/image/menu_info2.jpg">
+                    
+                    
+                </div>
+            </div>
+            
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+        </div>
+      
+   <!-- <h1 class="page-header">MAKE BURGER</h1> -->
+ 
   <br>
-  <br>
+  
   	<form>
 		<input type=button class="form-control" value="기존버거" onclick="sendMessage(10)">
 		<input type=button class="form-control" value="step1. 번 선택하기" onclick="sendMessage(20)">
@@ -74,40 +104,11 @@ function nutirition()
 		<div id="materialPrint"></div>
 		<hr width=800 color="red">
         <buttton value="영양정보" onclick="nutirition()" ><img src="web/images/info.jpg" width=50 height=50></buttton>
-  		
-   <!-- <table border=0 width=500>
-    <tr>
-     <td align=center>
-      <a href=""><img src="web/image/1955fire.png" border=0 width=300>&nbsp;B&B 파이어</a></td>
-     <td align=center> 
-      <a href=""><img src="web/image/1955smoky.png" border=0 width=300>&nbsp;B&B 스모키</a></td>
-     <td align=center> 
-      <a href=""><img src="web/image/1955.png" border=0 width=300>&nbsp;B&B</a></td>
-     
-    </tr>
-    <tr>
-     <td align=center> 
-      <a href=""><img src="web/image/bacontomato.png" border=0 width=300>&nbsp;베이컨 토마토</a></td>
-     <td align=center>  
-      <a href=""><img src="web/image/double1955.png" border=0 width=300>&nbsp;더블 B&B</a></td>
-     <td align=center>  
-      <a href=""><img src="web/image/doublebulgogi.png" border=0 width=300>&nbsp;더블 불고기</a></td>
-     
-    </tr>
-    <tr>
-     <td align=center>
-      <a href=""><img src="web/image/doublequater.png" border=0 width=300>&nbsp;더블 쿼터 B&B</a></td>
-     <td align=center> 
-      <a href=""><img src="web/image/quaterpounder.png" border=0 width=300>&nbsp;쿼터 B&B</a></td>
-     <td align=center> 
-      <a href=""><img src="web/image/tomatocheese.png" border=0 width=300>&nbsp;토마토 치즈</a></td>
-     
-    </tr>
-    <tr>
-
+  	
+  	 
    
-   </tr>
-   </table> -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
  </center>
 </body>
 </html>
