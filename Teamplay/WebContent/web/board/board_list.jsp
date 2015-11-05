@@ -28,7 +28,8 @@
 			<c:set var="i" value="${i+1 }"/>
 			
 			<td class="blog-post">
-              <a href="board_content.do?no=${dto.bno }&page=${curpage}"><img src="web/image/${dto.bfilename }" width="200" height="200"></a>
+              <a href="board_content.do?no=${dto.bno }&page=${curpage}"><img src="web/images/${dto.bfilename }" width="200" height="200"></a>
+               
               
                <div class="text">
                   <a href=""> ${dto.bsub}</a>

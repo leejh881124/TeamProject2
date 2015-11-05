@@ -145,7 +145,7 @@ img {
       <tr>
          <td rowspan="6" width=65% height=90%>
          
-            <img src="web/image/${dto.bfilename}">
+            <img src="web/images/${dto.bfilename}">
          </td>
          <td colspan="3" height="10">
          ${dto.bname }
