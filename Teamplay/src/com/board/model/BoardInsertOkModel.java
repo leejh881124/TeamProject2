@@ -16,8 +16,10 @@ public class BoardInsertOkModel implements Model{
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-//		String path="C:\\Users\\sist\\Git\\TeamProject2\\Teamplay\\WebContent\\web\\image";
-		String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
+		//String path="C:\\Users\\sist\\Git\\TeamProject2\\Teamplay\\WebContent\\web\\image";
+		//String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
+		String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
+		//C:\webDev\webStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Teamplay\web\image
 		
 		String enctype="EUC-KR";
 		req.setCharacterEncoding("EUC-KR");

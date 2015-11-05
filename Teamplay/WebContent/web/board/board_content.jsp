@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="board/table.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 var i=0;
@@ -124,10 +123,19 @@ function replyUpdateClick(no)
 }
 
 </script>
+<style type="text/css">
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+</style>
 </head>
 <body>
   <center>
-
+	<div class="page-header">
+       <h1>RECOMMENDATION BOARD</h1>
+     </div>
     <table border=1 width=900 height=700>
     
       <tr>
@@ -137,7 +145,7 @@ function replyUpdateClick(no)
       <tr>
          <td rowspan="6" width=65% height=90%>
          
-            <img src="web/image/${dto.bfilename}">
+            <img src="web/images/${dto.bfilename}">
          </td>
          <td colspan="3" height="10">
          ${dto.bname }
@@ -159,7 +167,7 @@ function replyUpdateClick(no)
         
 <!-- 수정 삭제 게시물가기 및 채팅창 및 버튼-->        
       <tr>
-         <td algin=left>
+         <td align=left>
             <input type=button class="form-control" value="좋아요">
             <input type=button class="form-control" value="댓글보기">
             
