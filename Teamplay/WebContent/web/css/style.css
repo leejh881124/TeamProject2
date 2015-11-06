@@ -1650,6 +1650,7 @@ h3.bars {
 .blog-post{
 	border:1px solid #eaeaea;
 	position:relative;
+    width: 30%;
 	}
 .blog-post img{
 /* 	width:100%; */

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="board/table.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 var i=0;
@@ -25,10 +26,10 @@ $(function(){
       }
    });
    $('#delBtn').click(function(){
-      var pwd=$('#pwd').val();
-      if(pwd=="")
+      var bpwd=$('#bpwd').val();
+      if(bpwd=="")
       {
-         $('#pwd').focus();
+         $('#bpwd').focus();
          return;
       }
       $('#delfrm').submit();
@@ -123,88 +124,74 @@ function replyUpdateClick(no)
 }
 
 </script>
-<style type="text/css">
-img {
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
-}
-</style>
+<style type="text/css"> 
+img { 
+	vertical-align: middle; 
+	max-width: 100%; 
+	height: auto; 
+} 
+</style> 
+
 </head>
 <body>
   <center>
-	<div class="page-header">
-       <h1>RECOMMENDATION BOARD</h1>
-     </div>
+	<div class="page-header" >
+         <h1>RECOMMENDATION BOARD</h1>
+    </div>
     <table border=1 width=900 height=700>
     
       <tr>
-         <td colspan="5" height=10% align=center>${dto.bsub }</td>
+         <td colspan="5" height=10% align=center><h4>${dto.subject }</h4></td>
       </tr>
       
       <tr>
          <td rowspan="6" width=65% height=90%>
          
-            <img src="web/image/${dto.bfilename}">
+            <img src="web/image/${dto.filename}"> 
          </td>
          <td colspan="3" height="10">
-         ${dto.bname }
+         ${dto.name } ( ${dto.id } )
              </td>
         </tr>
       <tr>
              <td align="left" height="10">
-                   조회수 : ${dto.bhit }
+                   조회수 : ${dto.hit }
                    등록일 : ${dto.dbday }
-                   좋아요 : ${dto.brec }
+                   좋아요 : ${dto.recommend }
            </td>  
       </tr>
       
         <tr>
-           <td height="250">
-              ${dto.bcont }
+           <td height="250" class="abt-text">
+             	<p> ${dto.content }</p>
            </td>
         </tr>
         
 <!-- 수정 삭제 게시물가기 및 채팅창 및 버튼-->        
       <tr>
          <td align=left>
+         	<c:if test="${sessionScope.id != dto.id}">
             <input type=button class="form-control" value="좋아요">
-            <input type=button class="form-control" value="댓글보기">
-            
-          
- 	<br>
-               <a href="board_update.do?no=${dto.bno }&page=${page}"><button class="btn btn-default" type="button" id="logBtn">수정</button></a>
-               <a href="board_insert.do"><button class="btn btn-default" type="button" id="logBtn">삭제</button></a>
+            </c:if>
+         <!--    <input type=button class="form-control" value="댓글보기"> -->
                <a href="board_list.do?page=${page }"><button class="btn btn-default" type="button" id="logBtn">목록</button></a>
+             
+            <c:if test="${sessionScope.id == dto.id}">
+               <a href="board_update.do?no=${dto.no }&page=${page}"><button class="btn btn-default" type="button" id="logBtn">수정</button></a>
+          		<a href="board_delete.do?no=${dto.no }&page=${page}"><input type=button class="btn btn-default" type="button" value="삭제"></a>
+          	</c:if>
             </td>
       </tr>
-      <tr id="delTr">
-         <td align=right>
-            <form method=post action="board_delete.do" id="delfrm">
-                  Password : <input type="password" name=pwd id=pwd size=10>
-                          <input type=hidden name=no value="${ dto.bno}">
-                          <input type=hidden name=page value="${page }">
-                          <input type=button value=삭제 id="delBtn">
-               </form>
-           </td>
-         </tr>
+      
        
        <tr>
           <td>
-               <span style="float: left;">
-                 <form method=post action="reply_re_insert.do" id="re_re_frm${rDto.no }">
-                     <textarea rows="5" cols="40" name="rmsg" id="rmsg${rDto.no }" style="resize: none; wrap:hard;"></textarea>
-                     <input type=hidden name=bno value="${ dto.bno}">
-                    <input type=hidden name=page value="${page }">
-                     <input type=hidden name=pno value="${rDto.no }">
-                     <input type=button value="확인" style="width:25px" onclick="replyBtnClick(${rDto.no })">
-                 </form>
-              </span>      
+               
             </td>
       </tr>
       <tr>
          <td>
-       댓글 만들수있을까
+     
          </td>
       </tr>
    </table>
@@ -212,8 +199,6 @@ img {
    
   </center>
 </body>
-
 </html>
-
 
 

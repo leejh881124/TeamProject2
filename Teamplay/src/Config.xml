@@ -8,8 +8,7 @@
 
 	<properties resource="com/menu/dao/db.properties"/>
 	<typeAliases>
-		<typeAlias type="com.board.dao.ReplyBoardDTO" alias="Board"/>
-		<typeAlias type="com.board.dao.ReplyDTO" alias="Reply"/>
+		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.member.dao.ZipcodeDTO" alias="Zipcode"/>
 		

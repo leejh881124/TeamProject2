@@ -13,43 +13,14 @@ public class BoardContentModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		String rPage=req.getParameter("rPage");
-		int type=0;
-		if(rPage==null)
-		{	
-			rPage="1";
-			type=1;
-		}
-		int rcurpage=Integer.parseInt(rPage);
+		System.out.println("BoardContentModel");
+		
 		String strNo=req.getParameter("no");
 		String strPage=req.getParameter("page");
-		ReplyBoardDTO d=ReplyBoardDAO.boardContentData(
-				Integer.parseInt(strNo),type);
-		/*List<ReplyDTO> temp=
-			ReplyBoardDAO.replyListData(Integer.parseInt(strNo));
-		int rtotal=ReplyBoardDAO.replyPageTotalpage(Integer.parseInt(strNo));
-		*/List<ReplyDTO> list=
-				new ArrayList<ReplyDTO>();
-		int j=0;
-		int pagecnt=(rcurpage*5)-5;
-	
-	
-		/*for(int i=0;i<temp.size();i++)
-		{
-			if(j<5 && i>=pagecnt)
-			{
-				ReplyDTO dd=temp.get(i);
-				list.add(dd);
-				j++;
-			}
-		}
-		req.setAttribute("rtotal", rtotal);
-		*/
-		req.setAttribute("rcurpage", rcurpage);
-		req.setAttribute("rlist", list);
-		req.setAttribute("page", strPage);
+		BoardDTO d=BoardDAO.boardContentData(
+				Integer.parseInt(strNo));
 		req.setAttribute("dto", d);
-		req.setAttribute("title", "내용보기");
+		req.setAttribute("page", strPage);
 		req.setAttribute("jsp", "../board/board_content.jsp");
 		return "web/main/index.jsp";
 	}

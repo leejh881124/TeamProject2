@@ -23,5 +23,7 @@
 	<bean id="board_insert" class="com.board.model.BoardInsertModel"/>
 	<bean id="board_insert_ok" class="com.board.model.BoardInsertOkModel"/>
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
+	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
+	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 </beans> <!-- endElement() -->
 <!-- endDocument() : 문서가 종료 -->

@@ -2,43 +2,74 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  <mapper namespace="com.board.dao.board-mapper">
-  
-    <select id="boardListData" resultType="Board" parameterType="java.util.Map">
-    	SELECT bno,bsub,bname,dbday,bfilename,brec,num
-    	FROM (SELECT bno,bsub,bname,TO_CHAR(bregdate,'YYYY-MM-DD') as dbday ,bfilename,brec,rownum as num
-    	FROM(SELECT bno,bsub,bname,bregdate,bfilename,brec
-    	FROM pboard ORDER BY bno DESC))
-    	WHERE num BETWEEN #{start} AND #{end} 
-    </select>
-    <select id="boardRowCount" resultType="int">
-    	SELECT count(*) from pboard
-    	
-    </select>
-    <!--  데이터 추가 -->
-    <insert id="boardInsert" parameterType="Board">
-      <!-- Sequence -->
-      <selectKey keyProperty="bno" resultType="int" order="BEFORE">
-        SELECT NVL(MAX(bno)+1,1) as bno FROM pboard
-      </selectKey>
-      INSERT INTO pboard VALUES(
-        1,#{bno},#{bname},#{bcont},#{bsub},#{bpwd},0,0,#{bfilename},
-        SYSDATE,0)
-    </insert>
-     <sql id="where-no">
-      WHERE bno=#{bno}
-    </sql>
-     <update id="boardHitIncrement" parameterType="int">
-      UPDATE pboard SET
-      bhit=bhit+1
-      <include refid="where-no"/>
-      <!-- ps.setInt(1,no) -->
-    </update>
-    <!-- 내용보기 데이터 출력  -->
-    <select id="boardContentData" resultType="Board" parameterType="int">
-     SELECT bno,bname,bsub,bcont,TO_CHAR(bregdate,'YYYY-MM-DD') as dbday, bhit,bfilename 
-     FROM pboard
-     <include refid="where-no"/>
-    </select>
+	<select id="boardListData" resultType="Board" parameterType="java.util.Map">
+		SELECT no, subject, name, dbday, filename, recommend, num
+		FROM (SELECT no, subject, name, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday,
+		filename, recommend, rownum as num
+		FROM (SELECT no, subject, name, regdate, filename, recommend
+		FROM pboard ORDER BY no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+
+ 	 
+ 	 <!-- 총페이지 구하기 -->
+ 	 <select id="boardRowCount" resultType="int">
+ 	 	SELECT COUNT(*) FROM pboard
+ 	 </select>
+ 	
+ 	
+	
+  	 <!-- 데이터 추가 -->
+ 	 <insert id="boardInsert" parameterType="Board">
+ 	 	<!-- Sequence -->
+ 	 	<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 	 		SELECT NVL(MAX(no)+1, 1) as no FROM pBoard
+ 	 	</selectKey>
+ 	 	INSERT INTO pBoard VALUES(
+ 	 		 #{id},#{no},#{name},#{subject},#{content},0, 0, #{filename},SYSDATE,0)
+ 	 </insert>
+ 	 
+ 	 <!--sql : 쿼리문장 반복됐을때 자바의 메소드처럼 만들어놓고 사용 -->
+ 	 <sql id="where-no">
+ 	 	WHERE no=#{no}
+ 	 </sql>
+ 	 
+ 	 <!-- 조회수 증가 -->
+ 	 <update id="boardHitIncrement" parameterType="int">
+ 	 	UPDATE pBoard SET
+ 	 	hit = hit+1
+		<include refid="where-no"/> 	 	<!-- WHERE no=#{no} --> 	
+ 	 	<!--  ps.setInt(1,no) -->
+ 	 </update>
+ 	 
+ 	 <!-- 내용보기 데이터 출력 -->
+ 	 <select id="boardContentData" resultType="Board" parameterType="int">
+ 	 	SELECT id, no, name, subject, content, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday,filename, hit
+ 	 	FROM pboard
+ 	 	<include refid="where-no"/> 
+ 	 </select>
+ 	 
+ 	 <!--  삭제 -->
+ 	  <delete id="boardDelete" parameterType="int">
+ 	 	DELETE FROM pboard
+ 	 	<include refid="where-no"/>
+ 	 </delete>
+ 	 
+ 	 <!-- 수정 -->
+ 	 <update id="boardUpdate" parameterType="Board">
+ 	 	UPDATE pboard SET 
+ 	 	subject=#{subject}, content=#{content}, filename=${filename}, regdate=SYSDATE
+ 	 	<include refid="where-no"/>
+ 	 </update>
+ 	 
+ 	 <!-- 좋아요 수 증가 -->
+ 	 <update id="boardRecIncrement" parameterType="int">
+ 	 	UPDATE pBoard SET
+ 	 	recommend = recommend+1
+		<include refid="where-no"/> 	 	
+ 	 </update>
+    
+   
  </mapper>
  
  

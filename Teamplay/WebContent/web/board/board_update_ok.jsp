@@ -8,5 +8,5 @@
   </script>
 </c:if>
 <c:if test="${bCheck==true }">
-  <c:redirect url="board_content.do?no=${no }&page=${page }"/>
+  <c:redirect url="board_content.do?bno=${bno }&page=${page }"/>
 </c:if>

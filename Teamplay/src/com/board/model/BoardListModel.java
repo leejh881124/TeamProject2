@@ -10,33 +10,30 @@ public class BoardListModel implements Model{
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		  String strPage=req.getParameter("page");
-		   if(strPage==null)
-		   {
-		      strPage ="1";
-		   }
-		 
-		   int curpage = Integer.parseInt(strPage);
-		   int rowSize=9;
-		   int totalpage = ReplyBoardDAO.boardTotalPage();
-		   int start=(curpage*rowSize)-(rowSize-1);
-		   int end=(curpage*rowSize);
-		   int num = end- start+1;
-		   
-		   Map map = new HashMap();
-		   map.put("start", start); // #{start} get("start")
-		   map.put("end", end);
-		   List<ReplyBoardDTO> list=ReplyBoardDAO.boardListData(map);
-	
-		   req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-		   req.setAttribute("list", list);
-		   req.setAttribute("num", num);
-	
-		   req.setAttribute("curpage", curpage);
-		   req.setAttribute("totalpage", totalpage);
-		   req.setAttribute("title", "자유 게시판");
-		   req.setAttribute("jsp", "../board/board_list.jsp");
-	
+		System.out.println("BoardListModel");
+		String strPage = req.getParameter("page");
+		if (strPage == null) 
+		{
+			strPage = "1";
+		}
+		int curpage = Integer.parseInt(strPage);
+		int rowSize = 9;
+		int totalpage = BoardDAO.boardTotalPage();
+		int start = (curpage * rowSize) - (rowSize - 1);
+		int end = (curpage * rowSize);
+		int num = end - start + 1;
+
+		Map map = new HashMap();
+		map.put("start", start); 
+		map.put("end", end);
+		
+		List<BoardDTO> list = BoardDAO.boardListData(map);
+		
+		req.setAttribute("list", list);
+		req.setAttribute("num", num);
+		req.setAttribute("curpage", curpage);
+		req.setAttribute("totalpage", totalpage);
+		req.setAttribute("jsp", "../board/board_list.jsp");
 		return "web/main/index.jsp";
 	}
 

@@ -5,8 +5,8 @@ import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.board.dao.ReplyBoardDAO;
-import com.board.dao.ReplyBoardDTO;
+import com.board.dao.BoardDAO;
+import com.board.dao.BoardDTO;
 import com.common.Model;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -23,30 +23,31 @@ public class BoardInsertOkModel implements Model{
 		req.setCharacterEncoding("EUC-KR");
 		int size=1024*1024*500;
 		MultipartRequest mr = new MultipartRequest(req,path,size,enctype,new DefaultFileRenamePolicy()); //파일이름이 같을때 바뀌게 하는거 파일네임폴리시()
-		String bname=mr.getParameter("bname");
-		String bsub=mr.getParameter("bsub");
-		String bcont=mr.getParameter("bcont");
-		String bpwd=mr.getParameter("bpwd");
-		String bfilename=mr.getOriginalFileName("upload");
-		System.out.println(bname+","+bsub+","+bcont+","+bpwd+","+bfilename);
-		ReplyBoardDTO d= new ReplyBoardDTO();
-		d.setBname(bname);
-		d.setBsub(bsub);
-		d.setBcont(bcont);
-		d.setBpwd(bpwd);
-		
-		if(bfilename==null)
+		String id = mr.getParameter("id");
+		String name=mr.getParameter("name");
+		String subject=mr.getParameter("subject");
+		String content=mr.getParameter("content");
+		String filename=mr.getOriginalFileName("filename");
+		System.out.println(id+"," +name+","+subject+","+content+","+filename);
+		BoardDTO d= new BoardDTO();
+		d.setId(id);
+		d.setName(name);
+		d.setSubject(subject);
+		d.setContent(content);
+		d.setFilename(filename);
+
+		if(filename==null)
 		{
-				d.setBfilename("");
+				d.setFilename("");
 		}
 		else
 		{
-			d.setBfilename(bfilename);
-			File f=new File(path+"\\"+bfilename);
+			d.setFilename(filename);
+			File f=new File(path+"\\"+filename);
 		}
 		
 		// DB연동
-		ReplyBoardDAO.boardInsert(d);
+		BoardDAO.boardInsert(d);
 		return "board_list.do";
 	}
 
