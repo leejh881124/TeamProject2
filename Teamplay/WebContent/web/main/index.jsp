@@ -6,8 +6,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
      pageEncoding="UTF-8"%> --%>
-     <%@ page language="java" contentType="text/html; charset=EUC-KR"
-     pageEncoding="EUC-KR"%>
+     <%@ page language="java" contentType="text/html; charset=utf-8"
+     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -82,10 +82,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 				<ul class="nav navbar-nav">
 					<li class="hvr-bounce-to-bottom ${active1 }" id=change-0><a href="index.do">HOME <span class="sr-only">(current)</span></a></li>
-					<li class="hvr-bounce-to-bottom ${active2 }" id=change-1><a href="menu.do">¸Ş´º</a></li>
-					<li class="hvr-bounce-to-bottom ${active3 }" id=change-2><a href="store.do">¸ÅÀåÁ¤º¸</a></li>
-					<li class="hvr-bounce-to-bottom ${active4 }" id=change-3><a href="reserve.do">¿¹¾à</a></li>
-					<li class="hvr-bounce-to-bottom ${active5 }" id=change-4><a href="board_list.do">°Ô½ÃÆÇ</a></li>
+					<li class="hvr-bounce-to-bottom ${active2 }" id=change-1><a href="menu.do">ë©”ë‰´</a></li>
+					<li class="hvr-bounce-to-bottom ${active3 }" id=change-2><a href="store.do">ë§¤ì¥ì •ë³´</a></li>
+					<li class="hvr-bounce-to-bottom ${active4 }" id=change-3><a href="reserve.do">ì˜ˆì•½</a></li>
+					<li class="hvr-bounce-to-bottom ${active5 }" id=change-4><a href="board_list.do">ê²Œì‹œíŒ</a></li>
 					
 				  </ul> 
 			 <div class="clearfix"></div>

@@ -221,5 +221,42 @@ INSERT INTO pboard VALUES(9, 14, '홍길동14', '이 버거 진짜 맛나요14', '버거추천1
 COMMIT;
 
 
+/* 11월 6일 수정
+DROP TABLE pboard CASCADE CONSTRAINTS;
+CREATE TABLE pboard
+(
+   id	VARCHAR2(40),
+   no       NUMBER(10) ,
+   name    VARCHAR2(34) CONSTRAINT pboard_nn_name NOT NULL,
+   subject       VARCHAR2(50) CONSTRAINT pboard_nn_sub NOT NULL,
+   content       CLOB CONSTRAINT pboard_nn_cont NOT NULL,
+   hit       NUMBER(10) DEFAULT 0,
+   recommend       NUMBER(10) DEFAULT 0,
+   filename    VARCHAR2(100),
+   regdate    DATE DEFAULT SYSDATE,
+   replycount   number(10) DEFAULT 0,
+   CONSTRAINT pboard_pk_no PRIMARY KEY(no),
+   CONSTRAINT pboard_fk_id FOREIGN KEY(id) REFERENCES pmember(id)
+);
+
+INSERT INTO pboard VALUES('hong', 1, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 2, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 3, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 4, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 5, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 6, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 7, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('hong', 8, '홍길동','버거추천',  '이 버거 진짜 맛나요',  0, 0, 'a.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 9, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 10, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 11, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 12, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 13, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 15, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 16, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+INSERT INTO pboard VALUES('shim', 17, '심청이','추천버거',  '하하하하핳  이 버거 진짜 맛나요',  0, 0, 'b.jpg', '2015-11-05', 0);
+COMMIT;
+*/
+
 
 
