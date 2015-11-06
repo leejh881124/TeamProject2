@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <style type="text/css">
 /* body{
@@ -68,8 +68,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--webfont-->
 <link href='//fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="web/js/move-top.js"></script>
+<script type="text/javascript" src="web/js/easing.js"></script>
+<script src="web/dist/js/bootstrap-datepicker.min.js"></script>
+<link href="web/dist/css/bootstrap-datepicker.min.css" rel='stylesheet'/>
+<script src="web/dist/locales/bootstrap-datepicker.kr.min.js"></script>
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -77,6 +80,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
+				var today = new Date();
+				var end = new Date();
+				end.setDate(end.getDate()+7);
+				$('#userbday').datepicker({
+					format: "yyyy-mm-dd",
+					startDate: today,
+					endDate: end,
+					autoclose: true
+					 //language: "kr"
+				}).on('change', function(){
+					$('#reserveDay').text($('#userbday').val());
+				})
 			});
 </script>
 </head>
@@ -89,48 +104,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>
 					<table border=0 width=200 align =left >
 						<tr bgcolor="black">
-							<th width=200><font color="white">³¯Â¥&½Ã°£</font></th>
+							<th width=200><font color="white">ë‚ ì§œ&ì‹œê°„</font></th>
 						</tr>
 						<tr>
-							<td width=100> ³¯Â¥ : <input type=date id="userbday" name="bday">
+							<td width=100> ë‚ ì§œ : <!--input type=date id="userbday" name="bday"-->
+								<input type="text" id="userbday" name="bday">
+								<script>
+									
+								</script>
+							</td>
 						</tr>
 						<tr>
-							<td width=100>½Ã°£:</td>
+							<td width=100>ì‹œê°„:</td>
 						</tr>
 					</table>
 					
 					<table border=0 width=200 align =left>
 						<tr bgcolor="black">
-							<th width=200><font color="white">¸ÅÀå Àå¼Ò</th>
+							<th width=200><font color="white">ë§¤ì¥ ì¥ì†Œ</th>
 						</tr>
 						<tr>
 							<td width=100>
-								<input type=radio name=loc value=½ÅÃÌ checked> ½ÅÃÌ<br>
-								<input type=radio name=loc value=µ¿ÀÎÃµ> µ¿ÀÎÃµ<br>
-								<input type=radio name=loc value=³ë·®Áø> ³ë·®Áø
+								<input type=radio name=loc value=ì‹ ì´Œ checked> ì‹ ì´Œ<br>
+								<input type=radio name=loc value=ë™ì¸ì²œ> ë™ì¸ì²œ<br>
+								<input type=radio name=loc value=ë…¸ëŸ‰ì§„> ë…¸ëŸ‰ì§„
 							</td>
 						</tr>
 					</table>
 					<table border=0 width=200 align =left>
 						<tr bgcolor="black">
-							<th width=200><font color="white">¹ö°Å</th>
+							<th width=200><font color="white">ë²„ê±°</th>
 						</tr>
 						<tr>
 							<td>
-								<input type=radio name=choice value=±âº»¹ö°Å checked> ±âº»¹ö°Å<br>
-								<input type=radio name=choice value=³ª¸¸ÀÇ¹ö°Å> ³ª¸¸ÀÇ¹ö°Å<br>
-								<input type=radio name=choice value=History¹ö°Å> History¹ö°Å
+								<input type=radio name=choice value=ê¸°ë³¸ë²„ê±° checked> ê¸°ë³¸ë²„ê±°<br>
+								<input type=radio name=choice value=ë‚˜ë§Œì˜ë²„ê±°> ë‚˜ë§Œì˜ë²„ê±°<br>
+								<input type=radio name=choice value=Historyë²„ê±°> Historyë²„ê±°
 							</td>
 						</tr>
 					</table>
 					<table border=0 width=200 align =left>
 						<tr bgcolor="black">
-							<th width=200><font color="white">°áÁ¦ ¹æ¹ı</th>
+							<th width=200><font color="white">ê²°ì œ ë°©ë²•</th>
 						</tr>
 						<tr>
 							<td>
-								<input type=radio name=pay value=ÇÚµåÆù checked> ÇÚµåÆù<br>
-								<input type=radio name=pay value=Ä«µå> Ä«µå
+								<input type=radio name=pay value=í•¸ë“œí° checked> í•¸ë“œí°<br>
+								<input type=radio name=pay value=ì¹´ë“œ> ì¹´ë“œ
 							</td>
 						</tr>
 					</table>
@@ -145,49 +165,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<table border=0 width=800>
 			<tr>
 				<th bgcolor="black" width=150><font color="white">
-				<b>³¯Â¥ ¹× ½Ã°£</b>
+				<b>ë‚ ì§œ ë° ì‹œê°„</b>
 				</font></th>
-				<td>
+				<td id="reserveDay">
 					&nbsp;&nbsp;&nbsp;2015/10/15
 				</td>
 				<td>
-					¿ÀÈÄ 13:10
+					ì˜¤í›„ 13:10
 				</td>
 			</tr>
 			<tr>
 				<th bgcolor="black" width=150><font color="white">
-					Àå¼Ò
+					ì¥ì†Œ
 				</th>
 				<td colspan=2>
-					&nbsp;&nbsp;&nbsp;¼­¿ï½Ã ½ÅÃÌ ¸Æ³¯
+					&nbsp;&nbsp;&nbsp;ì„œìš¸ì‹œ ì‹ ì´Œ ë§¥ë‚ 
 				</td>
 			</tr>
 			<tr>
 				<th bgcolor="black" width=150><font color="white">
-					¹ö°Å
+					ë²„ê±°
 				</th>
 				<td>
-					&nbsp;&nbsp;&nbsp;³ª¸¸ÀÇ¹ö°Å ¿Í±¸¾Æ
+					&nbsp;&nbsp;&nbsp;ë‚˜ë§Œì˜ë²„ê±° ì™€êµ¬ì•„
 				</td>
 				<td>
-					¼ö·® : 7°³
+					ìˆ˜ëŸ‰ : 7ê°œ
 				</td>
 			</tr>
 			<tr>
 				<th bgcolor="black" width=150><font color="white">
-					°áÁ¦
+					ê²°ì œ
 				</th>
 				<td>
-					&nbsp;&nbsp;&nbsp;ÇÚµåÆù °áÁ¦
+					&nbsp;&nbsp;&nbsp;í•¸ë“œí° ê²°ì œ
 				</td>
 				<td>
-					±İ¾× : 35000
+					ê¸ˆì•¡ : 35000
 				</td>
 			</tr>
 			<br>
 			<tr>
 				<td colspan=3 align=center>
-				<input type="submit" value=¿¹¾à¿Ï·á>
+				<input type="submit" value=ì˜ˆì•½ì™„ë£Œ>
 				</td>
 				
 			</tr>
