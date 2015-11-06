@@ -73,7 +73,6 @@ CREATE TABLE menu(
  tno NUMBER(4) CONSTRAINT menu_tno_nn NOT NULL,
  hname VARCHAR2(30) CONSTRAINT menu_hname_nn NOT NULL,
  price NUMBER(8),
- minfo CLOB,
  hname2 VARCHAR2(30) CONSTRAINT menu_hname2_nn NOT NULL,
  CONSTRAINT menu_pk_hno PRIMARY KEY(hno)
 );
@@ -139,50 +138,50 @@ CREATE TABLE preply
 
 -- 메뉴 추가
 
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(1,10,'BB파이어 버거',6200, '1955fire','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(2,10,'BB스모키 버거',6200, '1955smoky','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(3,10,'BB 버거',5700, '1955','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(4,10,'베이컨토마토 버거',5300, 'bacontomato','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(5,10,'더블BB 버거',6900, 'double1955','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(6,10,'더블불고기 버거',4600, 'doublebulgogi','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(7,10,'더블쿼터BB 버거',6400, 'doublequater','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(8,10,'쿼터BB 버거',5100, 'quaterpounder','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(9,10,'토마토치즈 버거',4600, 'tomatocheese','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(10,20,'브리오쉬 번','briosh','핫해'); 
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(11,20,'오트밀 번','oatmeal','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(13,30,'앵거스 비프 패티','patty','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(14,40,'아메리칸 치즈','american','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(15,40,'프로볼로네 치즈','probolone','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(16,40,'페퍼 잭 치즈','pepperjack','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(17,50,'레터스','lettucewrap','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(18,50,'레드 어니언','redonion','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(19,50,'토마토','tomato','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(20,50,'할라피뇨','jalapeno','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(21,50,'롱 슬라이스 피클','pickle','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(22,50,'어니언','onion','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(23,60,'마요네즈','mayonnaise','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(24,60,'머스타드','mustard','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(25,60,'토마토 할라피뇨 렐리시','tomatojalapen','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(26,60,'케첩','ketchup','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(27,60,'아이올리','aioli','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(28,60,'스파이시 바베큐','spicy','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(29,60,'발사믹','balsamic','핫해');
-INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(30,60,'BB 스페셜','bigmac','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(31,70,'메이플 베이컨',500,'bacon','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(32,70,'그릴드 머쉬룸',500,'gmushroom','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(33,70,'그릴드 어니언',500,'gonion','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(34,80,'후렌치 후라이',1800,'french','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(35,80,'BB 윙',2300,'bbwings','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(36,80,'BB 너겟',2900,'bbnuggets','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(37,80,'코카 콜라',1300,'cola','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(38,80,'코카 콜라 제로',1300,'colazero','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(39,80,'스프라이트',1300,'sprite','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(40,80,'환타',1300,'fanta','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(41,80,'아이스 아메리카노',2300,'iceamericano','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(42,80,'아이스 카페라떼',2600,'icelatte','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(43,80,'아메리카노',1800,'americano','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(44,80,'카페라떼',2100,'latte','핫해');
-INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(45,80,'카푸치노',2100,'cappu','핫해');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(1,10,'BB파이어 버거',6200, '1955fire');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(2,10,'BB스모키 버거',6200, '1955smoky');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(3,10,'BB 버거',5700, '1955');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(4,10,'베이컨토마토 버거',5300, 'bacontomato');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(5,10,'더블BB 버거',6900, 'double1955');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(6,10,'더블불고기 버거',4600, 'doublebulgogi');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(7,10,'더블쿼터BB 버거',6400, 'doublequater');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(8,10,'쿼터BB 버거',5100, 'quaterpounder');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(9,10,'토마토치즈 버거',4600, 'tomatocheese');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(10,20,'브리오쉬 번','briosh'); 
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(11,20,'오트밀 번','oatmeal');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(13,30,'앵거스 비프 패티','patty');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(14,40,'아메리칸 치즈','american');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(15,40,'프로볼로네 치즈','probolone');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(16,40,'페퍼 잭 치즈','pepperjack');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(17,50,'레터스','lettucewrap');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(18,50,'레드 어니언','redonion');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(19,50,'토마토','tomato');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(20,50,'할라피뇨','jalapeno');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(21,50,'롱 슬라이스 피클','pickle');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(22,50,'어니언','onion');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(23,60,'마요네즈','mayonnaise');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(24,60,'머스타드','mustard');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(25,60,'토마토 할라피뇨 렐리시','tomatojalapen');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(26,60,'케첩','ketchup');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(27,60,'아이올리','aioli');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(28,60,'스파이시 바베큐','spicy');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(29,60,'발사믹','balsamic');
+INSERT INTO menu(hno, tno, hname, hname2, minfo) VALUES(30,60,'BB 스페셜','bigmac');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(31,70,'메이플 베이컨',500,'bacon');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(32,70,'그릴드 머쉬룸',500,'gmushroom');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(33,70,'그릴드 어니언',500,'gonion');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(34,80,'후렌치 후라이',1800,'french');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(35,80,'BB 윙',2300,'bbwings');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(36,80,'BB 너겟',2900,'bbnuggets');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(37,80,'코카 콜라',1300,'cola');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(38,80,'코카 콜라 제로',1300,'colazero');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(39,80,'스프라이트',1300,'sprite');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(40,80,'환타',1300,'fanta');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(41,80,'아이스 아메리카노',2300,'iceamericano');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(42,80,'아이스 카페라떼',2600,'icelatte');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(43,80,'아메리카노',1800,'americano');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(44,80,'카페라떼',2100,'latte');
+INSERT INTO menu(hno, tno, hname, price, hname2, minfo) VALUES(45,80,'카푸치노',2100,'cappu'');
 
 
 
