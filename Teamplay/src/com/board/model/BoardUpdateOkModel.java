@@ -14,16 +14,20 @@ public class BoardUpdateOkModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		req.setCharacterEncoding("EUC-KR");
-		
 		System.out.println("BoardUpdateOkModel");
+		req.setCharacterEncoding("EUC-KR");
+		String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
+		String enctype="EUC-KR";
+		int size=1024*1024*500;
+		MultipartRequest mr = new MultipartRequest(req,path,size,enctype,new DefaultFileRenamePolicy()); //파일이름이 같을때 바뀌게 하는거 파일네임폴리시()
+		
 		
 		String strPage = req.getParameter("page");
 		String strNo = req.getParameter("no");
 		
 		String subject = req.getParameter("subject");
 		String content = req.getParameter("content");
-		String filename = req.getParameter("filename");
+		String filename = mr.getParameter("filename");
 		System.out.println(strPage+","+strNo+","+ subject+","+content+"," + filename);
 		BoardDTO d = new BoardDTO();
 		d.setSubject(subject);

@@ -177,14 +177,15 @@ public class BoardDAO {
 		}
 	}
 	
-	public static void boardRecIncrement(int no) 
+	public static BoardDTO boardRecIncrement(int no) 
 	{
 		SqlSession session = null;
 		BoardDTO d = new BoardDTO();
 		try 
 		{
 			session = ssf.openSession(true);
-			session.update("boardHitIncrement", no);
+			session.update("boardRecIncrement", no);
+			d = session.selectOne("boardContentData", no);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
@@ -193,7 +194,7 @@ public class BoardDAO {
 			if (session != null)
 				session.close();
 		}
-		return;
+		return d;
 	}
 }
 

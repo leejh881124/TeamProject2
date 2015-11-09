@@ -44,7 +44,7 @@
  	 
  	 <!-- 내용보기 데이터 출력 -->
  	 <select id="boardContentData" resultType="Board" parameterType="int">
- 	 	SELECT id, no, name, subject, content, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday,filename, hit
+ 	 	SELECT id, no, name, subject, content, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday,filename, hit, recommend
  	 	FROM pboard
  	 	<include refid="where-no"/> 
  	 </select>
