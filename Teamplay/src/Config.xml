@@ -11,7 +11,7 @@
 		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.member.dao.ZipcodeDTO" alias="Zipcode"/>
-		
+		<typeAlias type="com.main.dao.MainDTO" alias="Main"/>
 		<typeAlias type="com.menu.dao.MenuDTO" alias="Menu"/>
 
 	</typeAliases>
@@ -31,6 +31,6 @@
 		<mapper resource="com/member/dao/member-mapper.xml"/>
 		<mapper resource="com/board/dao/board-mapper.xml"/>
 		<mapper resource="com/menu/dao/menu-mapper.xml"/>
-
+		<mapper resource="com/main/dao/main-mapper.xml"/>
 	</mappers>
 </configuration>

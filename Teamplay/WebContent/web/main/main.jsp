@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,14 +22,15 @@
                <td><img src="web/images/3st.jpg"></td>
             </tr>
             <tr>
-               <td><img src="web/images/exa.png"> </td>
-               <td><img src="web/images/exb.png"> </td>
-               <td><img src="web/images/exc.png"> </td>
+            	<c:forEach var="list" items="${ list12}">
+            	
+            	<td><img src="web/images/${list.filename }" width="250px" height="250px"> </td>
+            	</c:forEach>
             </tr>
             <tr>
-               <td align=center>내가 만든 버거</td>
-               <td align=center>너가 만든 버거</td>   
-               <td align=center>우리가 만든 버거</td>
+     		    <c:forEach var="list" items="${ list12}">
+            	<td>${list.subject } </td>
+            	</c:forEach>
             </tr>
          </table>
 

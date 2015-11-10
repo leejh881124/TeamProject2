@@ -69,6 +69,16 @@
 		<include refid="where-no"/> 	 	
  	 </update>
     
+    <select id="bestListData" resultType="Board" parameterType="java.util.Map">
+		SELECT no, subject, name, dbday, filename, recommend, num
+		FROM (SELECT no, subject, name, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday,
+		filename, recommend, rownum as num
+		FROM (SELECT no, subject, name, regdate, filename, recommend
+		FROM pboard ORDER BY no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+
+ 	 
    
  </mapper>
  
