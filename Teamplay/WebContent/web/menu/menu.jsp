@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="web/shadow/css/shadowbox.css"/>
 <script type="text/javascript" src="web/shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
-
+$(document).ready(function(){
+	sendMessage(10);
+})
 var httpRequest=null;
 function createHttpRequest(){
 	if(window.ActiveXObject){

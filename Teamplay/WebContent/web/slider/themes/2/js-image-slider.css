@@ -113,16 +113,18 @@
     margin-left: 5px;
     width:300px;
     font:normal 11px/13px Arial;
-    border-top:1px solid #CCC;
+    /* border-top:1px solid #CCC; */
     color:#666;
 }
 #thumbs .thumb 
 {
-    border:1px solid #CCC;
-    border-top:1px solid #FFF;
+/*     border:1px solid #CCC;
+    border-top:1px solid #FFF; */
     height:110px;
     padding:11px 8px;
-   background:#FFF; 
+    margin: 10px;
+   background:rgba(245, 238, 219, 0.84);
+   border-radius: 10px;
  /*  background:rgba(243, 207, 122, 0.74); */
 }
 #thumbs .thumb-on 
@@ -131,13 +133,20 @@
 }
 
 #thumbs img{/* border:1px solid #DDD; */
- cursor:pointer;     width: 80px;
-    height: 70px;}
+ cursor:pointer;     width: 100px;
+    height: 90px;}
 
-#thumbs .frame {float:left;padding:2px;border:1px solid #CCC;background:white;border-radius:3px;/* box-shadow:0 0 3px #BBB; */font-size:0;line-height:0;}
+#thumbs .frame {float:left;padding:2px;/* border:1px solid #CCC; */background:white;border-radius:10px;/* box-shadow:0 0 3px #BBB; */font-size:12px;line-height:0;}
 #thumbs .thumb-content {float:left;width:110px;padding-left:18px;}
 
 /* Captions in #thumbs .thumb-content */
-#thumbs .thumb-content p {font-weight:bold; color:#BF5D9B; margin:0 0 3px;padding:0;}
-#thumbs .thumb-on .thumb-content p {color:#BB0000;}
+#thumbs .thumb-content p {
+	
+	    font-weight: bold;
+    color: #8A7A6C;
+    margin: 0 0 3px;
+    padding: 10px 0;
+    font-size: 14px;
+}
+#thumbs .thumb-on .thumb-content p {color:#D0650E;;}
 
