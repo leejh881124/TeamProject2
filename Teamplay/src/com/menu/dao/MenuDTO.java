@@ -8,12 +8,13 @@ public class MenuDTO {
 	private String hname;
 	private int price;
 	private String hname2;
-	private String minfo;
-	public String getMinfo() {
-		return minfo;
+	private String info;
+	
+	public String getInfo() {
+		return info;
 	}
-	public void setMinfo(String minfo) {
-		this.minfo = minfo;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	public String getHname2() {
 		return hname2;

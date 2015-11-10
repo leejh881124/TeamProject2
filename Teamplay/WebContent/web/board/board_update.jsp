@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -22,14 +22,8 @@ $(function(){
 	         $('#usercontent').focus();
 	         return;
 	      }
-	      var file = $('#userfile').val();
-	      if(file=="")
-	      {
-	         $('#userfile').focus();
-	         return;
-	      }
-	   
-	      $('#updateForm').submit();
+
+	      $('#writeForm').submit();
 	   });
 	   $('#btnCancel').click(function(){
 	      history.back();
@@ -43,10 +37,9 @@ $(function(){
 	<div class="page-header">
 		<h1>UPDATE</h1>
 	</div>
-	<br>
-	<br>
+	
 	<div id="container">
-	<form name="update_frm" id="updateForm" method=post
+	<form name="write_frm" id="writeForm" method=post
 			action="board_update_ok.do" enctype="multipart/form-data">
 		<table class="table" border="0" width="600" height="550" style="border-spacing: 0px;
 		     border-collapse: collapse;">
@@ -57,7 +50,7 @@ $(function(){
 					<input type=hidden name="no" value="${dto.no }">
 					<input type=hidden name="page" value="${page }">
 					<span class="your-para">${sessionScope.name}</span>
-					<span class="your-para">(${sessionScope.id})</span>
+					<span class="your-para">${sessionScope.id}</span>
 				</td>
 			</tr>
 			<tr>
@@ -76,10 +69,9 @@ $(function(){
 			<tr>
 				<td width="20%"><p class="your-para">이미지</p></td>
 				<td width="80%"  >
-					 <input type=file id="userfile"
-					name=upload size=25 class="form-control"> 
-					
-				</td>
+						 <input type=file id="userfile"
+					name=filename size=25 class="form-control"> 
+					<input type=hidden name=beforefilename value="${dto.filename }">
 			</tr>
 			
 			</tbody>
@@ -92,3 +84,6 @@ $(function(){
 	</div>
   </center>
 </body>
+</html>
+
+

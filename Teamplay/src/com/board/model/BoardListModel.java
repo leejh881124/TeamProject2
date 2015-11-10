@@ -10,7 +10,7 @@ public class BoardListModel implements Model{
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardListModel");
+//		System.out.println("BoardListModel");
 		String strPage = req.getParameter("page");
 		if (strPage == null) 
 		{

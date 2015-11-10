@@ -13,10 +13,11 @@ public class BoardContentModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardContentModel");
+//		System.out.println("BoardContentModel");
 		
 		String strNo=req.getParameter("no");
 		String strPage=req.getParameter("page");
+//		System.out.println("no:"+strNo + "page:"+strPage);
 		BoardDTO d=BoardDAO.boardContentData(
 				Integer.parseInt(strNo));
 		req.setAttribute("dto", d);

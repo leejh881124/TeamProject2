@@ -44,6 +44,6 @@ public class MainDAO {
 		   }
 	
 		   return list;
-		   //return ssf.openSession().selectList("boardListData",map);
+		
 	   }
 }

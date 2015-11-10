@@ -126,9 +126,10 @@ function replyUpdateClick(no)
 </script>
 <style type="text/css"> 
 img { 
-	vertical-align: middle; 
 	max-width: 100%; 
-	height: auto; 
+	max-height: 100%;
+	width: auto;
+	height: auto;
 } 
 </style> 
 
@@ -138,39 +139,46 @@ img {
 	<div class="page-header" >
          <h1>RECOMMENDATION BOARD</h1>
     </div>
-    <table border=1 width=900 height=700>
-    
-      <tr>
-         <td colspan="5" height=10% align=center><h4>${dto.subject }</h4></td>
-      </tr>
-      
-      <tr>
-         <td rowspan="6" width=65% height=90%>
+   <table class="table" border="0" width=800 height=600>
 
-            <img src="web/images/${dto.filename}"> 
+		<tr>
+			<td colspan="3" height=10% align=center><h4>${dto.subject }</h4></td>
+		</tr>
 
-         </td>
-         <td colspan="3" height="10">
-         ${dto.name } ( ${dto.id } )
-             </td>
-        </tr>
+		<tr>
+			<td rowspan="6" width=65% height=90% style="vertical-align: middle;"><img
+				src="web/image/${dto.filename}"></td>
+			<td>작성자</td>
+			<td>${dto.name }(${dto.id } )</td>
+
+		</tr>
+
+		<tr>
+			<td>등록일</td>
+			<td>${dto.dbday }</td>
+		</tr>
+		<tr>
+			<td>조회수</td>
+			<td>${dto.hit }</td>
+		</tr>
+		<tr>
+			<td>좋아요</td>
+			<td>${dto.recommend }</td>
+		</tr>
+
+
+
+
+
+	
       <tr>
-             <td align="left" height="10">
-                   조회수 : ${dto.hit }
-                   등록일 : ${dto.dbday }
-                   좋아요 : ${dto.recommend }
-           </td>  
-      </tr>
-      
-        <tr>
-           <td height="250" class="abt-text">
+           <td colspan="2"  height="50%" class="abt-text">
              	<p> ${dto.content }</p>
            </td>
         </tr>
-        
-<!-- 수정 삭제 게시물가기 및 채팅창 및 버튼-->        
+      
       <tr>
-         <td align=left>
+         <td align=right colspan="2">
          	<c:if test="${sessionScope.id != dto.id && sessionScope.id!=null}">
              <a href="board_like.do?no=${dto.no }&page=${page }"><input type=button class="form-control" value="좋아요"></a>
             </c:if>
@@ -182,18 +190,6 @@ img {
           		<a href="board_delete.do?no=${dto.no }&page=${page}"><input type=button class="btn btn-default" type="button" value="삭제"></a>
           	</c:if>
             </td>
-      </tr>
-      
-       
-       <tr>
-          <td>
-               
-            </td>
-      </tr>
-      <tr>
-         <td>
-     
-         </td>
       </tr>
    </table>
       
