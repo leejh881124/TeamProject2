@@ -4,7 +4,7 @@
  <mapper namespace="com.menu.dao.menu-mapper">
    
     <select id="menuListData" resultType="Menu" parameterType="int">
-      SELECT hno,hname,price,hname2 FROM menu WHERE tno=#{tno}
+      SELECT hno,hname,price,hname2,info FROM menu WHERE tno=#{tno}
     </select>
     
  </mapper>

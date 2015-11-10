@@ -103,9 +103,9 @@ function nutirition()
 		
 		<div id="materialPrint"></div>
 		<hr width=800 color="red">
-        <buttton value="영양정보" onclick="nutirition()" ><img src="web/images/info.jpg" width=50 height=50></buttton>
-  	
-  	 
+        <div align="right" style="margin-right:200px">
+        <buttton value="영양정보" onclick="nutirition()" ><img src="web/images/info2.jpg" width=50 height=50></buttton>
+  		</div>
    
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>

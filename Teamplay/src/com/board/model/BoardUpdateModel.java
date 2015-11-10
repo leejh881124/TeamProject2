@@ -11,7 +11,7 @@ public class BoardUpdateModel implements Model{
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("EUC-KR");
-		System.out.println("BoardUpdateModel");
+//		System.out.println("BoardUpdateModel");
 		
 		String strNo = req.getParameter("no");
 		String strPage = req.getParameter("page");
@@ -21,6 +21,8 @@ public class BoardUpdateModel implements Model{
 		
 		req.setAttribute("jsp", "../board/board_update.jsp");	
 		return "web/main/index.jsp";
+		
+
 	}
 
 }

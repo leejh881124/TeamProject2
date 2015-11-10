@@ -14,7 +14,7 @@
            <jsp:include page="${slider }"></jsp:include>
          </div>
          <br>
-         <table>
+        <!--  <table>
             <th>게시물 best</th>
             <tr>
                <td><img src="web/images/1st.jpg"></td>
@@ -32,7 +32,7 @@
             	<td>${list.subject } </td>
             	</c:forEach>
             </tr>
-         </table>
+         </table> -->
 
          <br>
          <div class="container">
