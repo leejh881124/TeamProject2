@@ -41,7 +41,7 @@
             	<img src="web/image/${dto.hname2}.jpg" alt=""/>
 						<figcaption>
 							<h4> </h4>
-							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
+							<p>${dto.info }</p>																
 						</figcaption>			
 				 </figure>
 				 <div class="clearfix"></div>
