@@ -434,7 +434,7 @@ nav a:focus {
 	height: 100%;
 }
 figure.effect-bubba {
-	  background-color:rgba(249,0,0,0.54);
+	  background-color:rgba(160, 74, 23, 0.56);
 }
 figure.effect-bubba:hover img {
 	opacity: 0.3;

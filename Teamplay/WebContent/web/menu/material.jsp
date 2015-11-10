@@ -11,18 +11,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link href='//fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<!--/script-->
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+
+</script>
 <title>Insert title here</title>
 </head>
 <body>
    <center>
-    <table border=0 width=500>
+    <table border=0 width=500 id="aaa">
          
-           <tr>
-         <c:forEach var="dto" items="${list }">   
-            <td><img class="circle" src="web/image/${dto.hname2}.jpg" width=200></td>
-          
+         <tr>
+         <c:forEach var="dto" items="${list }">  
+         	<c:set var="i" value="${i+1 }"/> 
+         	<td>
+         	<div class="content-grid l-grids">
+				 <figure class="effect-bubba">
+            	
+            	<img src="web/image/${dto.hname2}.jpg" alt=""/>
+						<figcaption>
+							<h4> </h4>
+							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
+						</figcaption>			
+				 </figure>
+				 <div class="clearfix"></div>
+				 <h3>${dto.hname }</h3>
+			 </div>
+          </td>
+         	<c:if test="${i%3==0 }">
+					</tr>
+				<c:if test="${i!=num }">
+					<tr>	
+				</c:if>	
+			</c:if>
          </c:forEach>
-           </tr>
+         </tr>
       
       </table>
    
