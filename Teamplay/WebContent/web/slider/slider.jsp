@@ -16,18 +16,18 @@
             <a class="lazyImage" href="web/image/1955fire.jpg" title="No2의 주인공~"></a>
            <!--  <b data-src="web/image/1955smoky.jpg"></b> -->
             <a class="lazyImage" href="web/image/1955smoky.jpg" title="스모스모"></a>
-            <a class="lazyImage" href="web/image/강아지.jpg" title="멍멍"></a>
+            <a class="lazyImage" href="web/image/quaterpounder.jpg" title="멍멍"></a>
         </div>
         <!--thumbnails-->
         <div id="thumbs">
             <div class="thumb">
                 <div class="frame"><img src="web/image/1955.jpg" /></div>
-                <div class="thumb-content"><p>Username</p>심심해서만들었는데 ㅎ</div>
+                <div class="thumb-content"><p>Hong</p>심심해서만들었는데 ㅎ</div>
                 <div style="clear:both;"></div>
             </div>
             <div class="thumb">
                 <div class="frame"><img src="web/image/1955fire.jpg" /></div>
-                <div class="thumb-content"><p>Username2</p>다음번에 일등하겠쏘</div>
+                <div class="thumb-content"><p>재형형바보</p>다음번에 일등하겠쏘</div>
                 <div style="clear:both;"></div>
             </div>
             <div class="thumb">
@@ -36,8 +36,8 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="thumb">
-                <div class="frame"><img src="web/image/강아지.jpg" /></div>
-                <div class="thumb-content"><p>Username4</p>이 버거는 어쩌구저쩌꾸~</div>
+                <div class="frame"><img src="web/image/quaterpounder.jpg" /></div>
+                <div class="thumb-content"><p>Shim</p>이 버거는 어쩌구저쩌꾸~</div>
                 <div style="clear:both;"></div>
             </div>
         </div>

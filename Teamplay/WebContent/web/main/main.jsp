@@ -14,7 +14,7 @@
            <jsp:include page="${slider }"></jsp:include>
          </div>
          <br>
-         <table>
+        <!--  <table>
             <th>게시물 best</th>
             <tr>
                <td><img src="web/images/1st.jpg"></td>
@@ -31,7 +31,7 @@
                <td align=center>너가 만든 버거</td>   
                <td align=center>우리가 만든 버거</td>
             </tr>
-         </table>
+         </table> -->
 
          <br>
          <div class="container">
