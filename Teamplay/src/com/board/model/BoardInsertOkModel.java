@@ -20,7 +20,8 @@ public class BoardInsertOkModel implements Model{
 		//String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
 //		String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
 		//C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\image
-		String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\images";
+		// 절대경로 자기꺼로
+		String path="C:\\webDev\\webStudy2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Teamplay\\web\\image";
 		String enctype="EUC-KR";
 		req.setCharacterEncoding("EUC-KR");
 		int size=1024*1024*500;
@@ -30,7 +31,7 @@ public class BoardInsertOkModel implements Model{
 		String subject=mr.getParameter("subject");
 		String content=mr.getParameter("content");
 		String filename=mr.getOriginalFileName("filename");
-		System.out.println(id+"," +name+","+subject+","+content+","+filename);
+//		System.out.println(id+"," +name+","+subject+","+content+","+filename);
 		BoardDTO d= new BoardDTO();
 		d.setId(id);
 		d.setName(name);

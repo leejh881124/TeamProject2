@@ -138,7 +138,7 @@ img {
 	<div class="page-header" >
          <h1>RECOMMENDATION BOARD</h1>
     </div>
-    <table border=1 width=900 height=700>
+    <table class="table"  width=900 height=700>
     
       <tr>
          <td colspan="5" height=10% align=center><h4>${dto.subject }</h4></td>
@@ -147,7 +147,7 @@ img {
       <tr>
          <td rowspan="6" width=65% height=90%>
 
-            <img src="web/images/${dto.filename}"> 
+            <img src="web/image/${dto.filename}"> 
 
          </td>
          <td colspan="3" height="10">
