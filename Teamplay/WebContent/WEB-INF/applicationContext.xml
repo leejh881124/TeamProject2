@@ -25,5 +25,6 @@
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
 	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
+	<bean id="board_like" class="com.board.model.BoardLikeModel"/>
 </beans> <!-- endElement() -->
 <!-- endDocument() : 문서가 종료 -->

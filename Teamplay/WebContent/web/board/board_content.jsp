@@ -147,7 +147,7 @@ img {
       <tr>
          <td rowspan="6" width=65% height=90%>
 
-            <img src="web/image/${dto.filename}"> 
+            <img src="web/images/${dto.filename}"> 
 
          </td>
          <td colspan="3" height="10">
@@ -171,8 +171,8 @@ img {
 <!-- 수정 삭제 게시물가기 및 채팅창 및 버튼-->        
       <tr>
          <td align=left>
-         	<c:if test="${sessionScope.id != dto.id}">
-            <input type=button class="form-control" value="좋아요">
+         	<c:if test="${sessionScope.id != dto.id && sessionScope.id!=null}">
+             <a href="board_like.do?no=${dto.no }&page=${page }"><input type=button class="form-control" value="좋아요"></a>
             </c:if>
          <!--    <input type=button class="form-control" value="댓글보기"> -->
                <a href="board_list.do?page=${page }"><button class="btn btn-default" type="button" id="logBtn">목록</button></a>

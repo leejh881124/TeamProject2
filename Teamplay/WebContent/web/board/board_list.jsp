@@ -45,7 +45,7 @@ $(function(){
 			<c:set var="i" value="${i+1 }"/>
 			
 			<td class="blog-post">
-              <a href="board_content.do?no=${dto.no }&page=${curpage}"><img src="web/image/${dto.filename }" width="200" height="200"></a>
+              <a href="board_content.do?no=${dto.no }&page=${curpage}"><img src="web/images/${dto.filename }" width="200" height="200"></a>
 
               
                <div class="text">
