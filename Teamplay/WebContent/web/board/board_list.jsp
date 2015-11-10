@@ -44,8 +44,8 @@ $(function(){
 			 
 			<c:set var="i" value="${i+1 }"/>
 			
-			<td class="blog-post">
-              <a href="board_content.do?no=${dto.no }&page=${curpage}"><img src="web/image/${dto.filename }" width="200" height="200"></a>
+			<td class="blog-post" align="center" >
+              <a href="board_content.do?no=${dto.no }&page=${curpage}"><img src="web/image/${dto.filename }"  align="center"width="200" height="200"></a>
 
               
                <div class="text">
@@ -54,8 +54,7 @@ $(function(){
             
                <div class="admin-tag">
                <p>Posted by ${dto.name} | ${dto.dbday } |  ${dto.recommend }</p>
-               <p></p>
-               
+                             
                <a href="board_content.do?no=${dto.no }&page=${curpage}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
                </div>	
 				
