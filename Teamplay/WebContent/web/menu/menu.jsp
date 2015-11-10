@@ -15,7 +15,7 @@
 $(document).ready(function(){
 	sendMessage(10);
 })
-
+ 
 var httpRequest=null;
 function createHttpRequest(){
 	if(window.ActiveXObject){

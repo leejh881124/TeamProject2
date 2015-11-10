@@ -35,7 +35,7 @@
          <c:forEach var="dto" items="${list }">  
          	<c:set var="i" value="${i+1 }"/> 
          	<td>
-         	<div class="content-grid l-grids">
+         	<div class="content-grid l-grids" style="width: 300px;">
 				 <figure class="effect-bubba">
             	
             	<img src="web/image/${dto.hname2}.jpg" alt=""/>
@@ -45,7 +45,7 @@
 						</figcaption>			
 				 </figure>
 				 <div class="clearfix"></div>
-				 <h3>${dto.hname }</h3>
+				 <h4>${dto.hname }</h4>
 			 </div>
           </td>
          	<c:if test="${i%3==0 }">

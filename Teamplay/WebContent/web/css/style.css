@@ -399,7 +399,9 @@ nav a:focus {
 .l-grids h4 {
 	font-size:1.4em;
   font-weight:400;
-  color: #fff;
+/*   color: #fff; */
+   text-align: -webkit-center;
+   color: #000;
 }
 .l-grids figure {
 	position: relative;
@@ -506,7 +508,7 @@ figure.effect-bubba:hover p {
 .content-grid h3{
 	padding-top: 20px;
 	font-size: 1.6em;
-    background-color: #F3F3F3;
+   /*  background-color: #F3F3F3; */
     padding: 12px 12px 15px;
 	text-align:center;
 }
