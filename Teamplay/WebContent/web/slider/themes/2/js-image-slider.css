@@ -9,14 +9,16 @@
 #sliderFrame 
 {
     box-sizing: content-box;
-    width:650px;
+    width:850px;
     margin:0 auto; /*center-aligned*/
     padding:20px;
-    box-shadow: 0 0 5px #BBB;border:1px solid #CCC; background-color:#FFF;
+  /*   box-shadow: 0 0 5px #BBB; border:1px solid #CCC;*/ background-color:#FFF;
 }
 
 #slider, #slider div.sliderInner {
-    width:350px;height:306px;/* Must be the same size as the slider images */
+   /*  width:350px;height:306px; *//* Must be the same size as the slider images */
+        width: 450px;
+    height: 406px;
 }
 
 #slider {
@@ -51,8 +53,8 @@
 }
 #slider div.mc-caption-bg {
     /* NOTE: Its opacity is to be set through the sliderOptions.captionOpacity setting in the js-image-slider.js file.*/
-	background:#DDD;/* or any other colors such as Black, or: background:none; */
-	border:1px solid white;
+	    background: #F6DB9C;/* or any other colors such as Black, or: background:none; */
+	/* border:1px solid white; */
 	border-radius: 5px;
 }
 #slider div.mc-caption-bg2 {
@@ -60,7 +62,7 @@
 }
 #slider div.mc-caption {
 	font:bold 13px/16px Arial;
-	color:#069;
+	color:#545454
 	z-index:4;
 	text-align:center;
     background:none;
@@ -107,9 +109,9 @@
 /* -- thumbnails -- */
 #thumbs 
 {
-    float:left;
+    float:right;
     margin-left: 5px;
-    width:250px;
+    width:300px;
     font:normal 11px/13px Arial;
     border-top:1px solid #CCC;
     color:#666;
@@ -118,18 +120,21 @@
 {
     border:1px solid #CCC;
     border-top:1px solid #FFF;
-    height:90px;
+    height:110px;
     padding:11px 8px;
-    background:#EEE;
+   background:#FFF; 
+ /*  background:rgba(243, 207, 122, 0.74); */
 }
 #thumbs .thumb-on 
 {
-    background:#FFF;
+        background: rgba(243, 207, 122, 0.74);
 }
 
-#thumbs img{border:1px solid #DDD; cursor:pointer; width:50px; height:44px;}
+#thumbs img{/* border:1px solid #DDD; */
+ cursor:pointer;     width: 80px;
+    height: 70px;}
 
-#thumbs .frame {float:left;padding:2px;border:1px solid #CCC;background:white;border-radius:3px;box-shadow:0 0 3px #BBB;font-size:0;line-height:0;}
+#thumbs .frame {float:left;padding:2px;border:1px solid #CCC;background:white;border-radius:3px;/* box-shadow:0 0 3px #BBB; */font-size:0;line-height:0;}
 #thumbs .thumb-content {float:left;width:110px;padding-left:18px;}
 
 /* Captions in #thumbs .thumb-content */
